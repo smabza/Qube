@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tervetuloa Mittauskuutioon</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+		<h1 class="text-center"style="margin: 30px 0px 30px 0px; color: black;">Valitse jatkotoimenpiteet</h1>
+	</div>
+	<div class="container text-center">
+		<div class="stanewmeas">
+		<button type="button" class="button yellowButton" role="button" id="homepage"><a href="/">Etusivulle</a>
+		<button type="button" class="button yellowButton" role="button" id="printResults"><p>Tulosta</br>tulokset ja etusivulle</p>
+		</div>
+	</div>
+
+<script>
+	var electron = require("electron");
+	var remote = electron.remote;
+	var index = remote.require("./index.js");
+	var heightInstr = index.heightInstr;
+	var showPoster = index.showPoster;
+	var exec = remote.require("./exec.js");
+  var fs = require("fs");
+	var exec = require('child_process').exec;
+
+
+	$('#printResults').on('click', function() {
+		// Print_file script here and then go to homepage.
+			exec("/home/kuutio/Työpöytä/electron_demo/scripts/print_file", function (error, stdout, stderr) {
+				console.log('stdout: ' + stdout);
+				console.log('stderr: ' + stderr);
+				if (error !== null) {
+					console.log('exec error: ' + error);
+				}
+			});
+			window.location = "http://127.0.0.1:3000/";
+			showPoster();
+		});
+
+	 $('#homepage').on('click', function() {
+			showPoster();
+	 });
+
+		exec.pcMode();
+		exec.child();
+		exec.cloth();
+		exec.bodytype();
+
+</script>
+
+<style>
+	.yellowButton {
+		font-weight: bold; margin: 170px 0px 0px 0px;
+		width: 250px;
+		height: 160px;
+		font-size: 2em;
+		background-color: #F3E24F; color: #000;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+		border: none;
+	}
+	#homepage {
+		margin-right: 70px;
+	}
+	#homepage a {
+		color: #000;
+	}
+</style>
+
+</body>
+</html>

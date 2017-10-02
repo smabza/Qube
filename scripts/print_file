@@ -1,0 +1,45 @@
+#!/bin/sh
+
+cd ~/mittauskuutio
+
+#Next lets do the file that will be printed 
+
+#add name to a value
+
+sed -i '1s/^/Paino(kg): /' weight.txt
+
+sed -i '1s/^/Rasvaprosentti(%): /' fat.txt
+
+sed -i '1s/^/Painoindeksi: /' bmi.txt
+
+sed -i '1s/^/Viskeraalirasva: /' visceral.txt
+
+sed -i '1s/^/BMR: /' bmr.txt 
+
+sed -i '1s/^/Metabolinen ikä: /' metage.txt
+
+#all files to one file
+#Now first value will be weight and last metabolic age 
+#if you want to change the order of the files just reorder the files below.
+# all files together will be at file print.txt
+cat weight.txt fat.txt bmi.txt visceral.txt bmr.txt metage.txt selitykset.txt > print.txt
+
+#add title
+sed -i '1iMITTAUSKUUTIO TULOKSET:\n' print.txt
+
+#print the fḯle
+#the file will be printed out from your computers default printer. If the command don't work check the default printer!
+lpr print.txt
+
+
+
+#delete files
+rm weight.txt
+rm fat.txt
+rm bmi.txt
+rm visceral.txt
+rm bmr.txt
+rm metage.txt
+
+echo "Kaikki tehty. Paina ENTER."
+read SANA

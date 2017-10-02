@@ -1,0 +1,75 @@
+#!/bin/sh
+
+cd ~/mittauskuutio
+
+#reads the data.txt file as long as the last line is S1, after that starts to edit the file
+
+File=~/mittauskuutio/data.txt
+
+until grep -q 'S1' "$File"; do
+sleep 2
+done
+if grep -q 'S1' "$File";
+then
+#delete last line of the file
+sed '$ d' data.txt > data1.txt
+
+#cuts last line of the file and saves it to file data2.txt
+tail -n 1 data1.txt > data2.txt
+
+#delete files
+#rm data.txt
+rm data1.txt
+
+#replace all "," marks with tab
+cat data2.txt | sed 's/\,/\t/g' > data_rivi.txt
+
+#delete file
+rm data2.txt
+
+#cut weight from file data_rivi.txt
+cat data_rivi.txt | cut -f30 > weight.txt
+
+#cut fat% from file data_rivi.txt
+cat data_rivi.txt | cut -f32 > fat.txt 
+
+#cut bmi from file data_rivi.txt
+cat data_rivi.txt | cut -f54 > bmi.txt
+ 
+#cut visceral fat from file data_rivi.txt
+cat data_rivi.txt | cut -f64 > visceral.txt 
+
+#cut bmr/kcal from file data_rivi.txt
+cat data_rivi.txt | cut -f68 > bmr.txt 
+
+#cut metabolic age from file data_rivi.txt
+cat data_rivi.txt | cut -f74 > metage.txt 
+
+#paste data. order of the data is weight, fat-%, bmi, visceral fat and metabolic age
+paste -d',' weight.txt fat.txt > wefa.txt
+
+paste -d',' wefa.txt bmi.txt > fatbmi.txt
+
+paste -d',' fatbmi.txt visceral.txt > bmivisc.txt
+
+paste -d',' bmivisc.txt bmr.txt > viscbmr.txt
+
+paste -d',' viscbmr.txt  metage.txt  > all_data.txt 
+
+
+#delete files
+
+rm data_rivi.txt
+rm wefa.txt
+rm fatbmi.txt
+rm bmivisc.txt
+rm viscbmr.txt; 
+> data.txt
+exit 0
+
+# you can find the data from file all_data.txt.
+echo "Now you can find the data from file all_data.txt"
+read SANA
+
+fi
+

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+</head>
+
+<body id="grad">
+
+	<div class="jumbotron">
+		<h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;">Valitse suoritettavat mittaukset</h1>
+	</div>
+
+<div class="tile-area">
+<div class="tile-container tile-container-one">
+			<div class="tile tile-wide-x" data-role="tile">
+				<div class="tile-content bg-yellow">
+					<a href="/basicinfo" role="button"><span class="mif-arrow-left"></span> Takaisin</a>
+				</div>
+			</div>
+
+			<div class="tile-square bg-inactive-red" data-role="tile">
+					<p>Pituus</p>
+			</div>
+			<div class="tile-square bg-inactive-orange" data-role="tile">
+				<p>Paino</p>
+			</div>
+			<div class="tile-large image1" data-role="tile">
+			</div>
+			<div class="tile-square bg-violet" id="violet" data-role="tile" style="padding-top:55px;">
+				<p>Kehon -<br>koostumus</p>
+			</div>
+			<div class="tile-square bg-inactive-blue" data-role="tile">
+				<p>Verenpaine</p>
+			</div>
+			<div type="button" class="tile tile-wide-x selectAll disabled bg-lightRed" id="toggle-btn" onclick="deselectAll">
+				<p>Valitse kaikki</p>
+			</div>
+		</div>
+
+		<div class="tile-container tile-container-two">
+			<div class="tile-large image2" data-role="tile">
+			</div>
+			<div class="tile tile-wide-x bg-green tile-seuraava">
+				<a href="/measurementsInProcess" class="absolute disabled" id="seuraava" role="button">Seuraava <span class="mif-arrow-right"></span></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+	var exec = require('child_process').exec;
+
+	$('#seuraava').on('click', startMeasurements);
+
+	function startMeasurements() {
+		exec("echo 'G\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
+			console.log('stdout: ' + stdout);
+			console.log('stderr: ' + stderr);
+			if (error !== null) {
+				console.log('exec error: ' + error);
+			}
+		});
+	};
+</script>
+
+<style>
+.tile-area {
+	text-align: center;
+	height: 650px;
+}
+.tile-container {
+	display: inline-block;
+}
+.tile-container:after {
+    clear: none;
+}
+.tile-container-one {
+	width: 670px;
+}
+.tile-container-two {
+	width: 240px;
+	margin-left: -4px;
+}
+.tile {
+	margin: 10px;
+}
+.tile-large {
+	margin: 10px;
+}
+.tile-square {
+	margin: 10px;
+	padding-top: 65px;
+	color: #fff;
+	font-size: 20px;
+}
+.selectAll {
+	width: 320px;
+	height: 140px;
+	padding-top: 60px;
+	color: #fff;
+	font-size: 20px;
+}
+.tile-seuraava {
+	height: 140px;
+}
+.tile-seuraava p {
+	font-size: 30px;
+}
+.image2 {
+	height: 320px;
+}
+.bg-inactive-red, .bg-inactive-orange, .bg-inactive-blue {
+	color: #B5B8B9;
+}
+.bg-inactive-red {
+	background-color: #897675;
+}
+.bg-inactive-orange {
+	background-color: #BD7440;
+}
+.bg-inactive-blue {
+	background-color: #5091AA;
+}
+.container-fluid {
+	font-weight: bold;
+	margin-top: 250px;
+}
+.button {
+	color: #fff;
+	height: 200px;
+	width: 200px;
+}
+.measuringDevices {
+	font-size: 30px;
+	margin-left: 5%;
+	background-color: rgb(56, 182, 171);
+}
+
+.image1 {
+	background: url('/images/toblur.jpg');
+	background-position: center;
+	background-size: cover;
+	opacity: 0.8;
+}
+.image2 {
+	background: url('/images/mountain.jpeg');
+	background-position: center;
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.centerText {
+	line-height: 150px;
+}
+
+.selectDevice {
+	width: 100%;
+	margin: auto;
+}
+
+.btn:active {
+	background-color: #154440;
+}
+
+.selectAll {
+	background-color: #d46784;
+}
+
+a.btn {
+	width: 250px;
+	font-size: 3em;
+	margin-right: 40px;
+}
+a .glyphicon {
+	top: 7px !important;
+}
+.btn:hover, .btn:focus, .btn.focus {
+    color: #FFF;
+		outline: none;
+    text-decoration: none;
+}
+#cancel {
+	background-color: #fff;
+	color: black;
+}
+.bg-yellow, .bg-green {
+	padding-top: 60px;
+	font-size: 20px;
+}
+.bg-yellow a, .bg-green a {
+	color: #fff;
+}
+
+</style>
+
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/jquery-ui/jquery-ui.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
+<script src="/js/script.js"></script>
+
+<script>
+		var electron = require("electron");
+		var remote = electron.remote;
+		var index = remote.require("./index.js");
+		var electron = require("electron");
+		var remote = electron.remote;
+		var index = remote.require("./index.js");
+		var heightInstr = index.heightInstr;
+
+		$('#seuraava').on('click', function() {
+			heightInstr();
+		});
+		$('#violet').on('click', function() {
+			$('#violet').css('border', '5px solid #FAFE8D');
+		});
+
+</script>
+<script>if (window.module) module = window.module;</script>

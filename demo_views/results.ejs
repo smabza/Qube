@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+		<h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;">Tulokset</h1>
+	</div>
+
+<div class="tile-area">
+	<div class="tile-container">
+		<div class="tile-square bg-yellow" id="BMR" data-role="tile"></div>
+		<div class="tile-square bg-red" id="fatPercent" data-role="tile"></div>
+		<div class="tile-large bg-blue" id="viskFat" data-role="tile"></div>
+	</div>
+	<div class="tile-container">
+		<div class="tile-large bg-green" id="metAge" data-role="tile"></div>
+		<div class="tile-square bg-orange" id="BMI" data-role="tile"></div>
+		<div class="tile-square bg-violet" id="weight" data-role="tile"></div>
+	</div>
+	<h1>Tulokset näkyvät 15 sekuntia.</h1>
+</div>
+</div>
+</body>
+</html>
+
+<script>
+var electron = require("electron");
+var fs = require("fs");
+var remote = electron.remote;
+var index = remote.require("./index.js");
+var exec = require('child_process').exec;
+
+/* =======================================
+Read all_data file if it exist, then
+create DOM elements with the values parsed
+from the file, then delete the file.
+======================================= */
+fs.stat('/home/kuutio/mittauskuutio/all_data.txt', (error, file) => {
+      if (!error && file.isFile()) {
+        fs.readFile('/home/kuutio/mittauskuutio/all_data.txt', 'utf8', function (err, data) {
+          if (err) {
+            return console.log(err);
+          }
+          // parse JSON and print first parameter:
+          results = data.split(",");
+          console.log(results[2]);
+          document.getElementById('weight').innerHTML = "Paino: " + "</br>" + results[0];
+					document.getElementById('fatPercent').innerHTML = "Rasvaprosentti: " + "</br>" + results[1];
+					document.getElementById('BMI').innerHTML = "BMI: " + "</br>" + results[2];
+					document.getElementById('viskFat').innerHTML = "Viskeraalinen rasva: " + "</br>" + results[3];
+					document.getElementById('BMR').innerHTML = "BMR: " + "</br>" + results[4];
+					document.getElementById('metAge').innerHTML = "Metabolinen ikä: " + "</br>" + results[5];
+
+					exec("find /home/kuutio/mittauskuutio/ -name "+"*all_data.txt"+" -type f -exec rm {} \\;", function (error, stdout, stderr) {
+					  console.log('stdout: ' + stdout);
+					  console.log('stderr: ' + stderr);
+        });
+      if (error && error.code === 'ENOENT') {
+        //return resolve(false);
+      }
+    });
+	}
+});
+</script>
+
+<script>setTimeout(function(){window.location.href='/finishedPoster'},15500);</script>
+
+<style>
+.tile-area {
+	text-align: center;
+	padding: 120px 10px 10px 20px;
+	height: 750px;
+	color: #fff;
+}
+.tile-container {
+	display: inline-block;
+}
+.tile-container:after {
+    clear: none;
+}
+.tile-container-one {
+	width: 670px;
+}
+.tile-container-two {
+	width: 240px;
+	margin-left: -4px;
+}
+.tile {
+	margin: 10px;
+}
+.tile-large {
+	margin: 10px;
+}
+.tile-square {
+	margin: 10px;
+	padding-top: 65px;
+	color: #fff;
+}
+.selectAll {
+	width: 320px;
+	height: 140px;
+	padding-top: 60px;
+	color: #fff;
+}
+.tile-seuraava {
+	height: 140px;
+}
+.tile-seuraava p {
+	font-size: 30px;
+}
+.image2 {
+	height: 320px;
+}
+.bg-inactive-red, .bg-inactive-orange, .bg-inactive-blue {
+	color: #B5B8B9;
+}
+.bg-inactive-red {
+	background-color: #897675;
+}
+.bg-inactive-orange {
+	background-color: #BD7440;
+}
+.bg-inactive-blue {
+	background-color: #5091AA;
+}
+
+body {
+	background: url('/images/kuutio.jpg');
+	background-position: center;
+}
+.container-fluid {
+	font-weight: bold;
+	margin-top: 250px;
+}
+
+.button {
+	/*background-color: #38b6ab;*/
+	color: #fff;
+	height: 200px;
+	width: 200px;
+}
+.measuringDevices {
+	font-size: 30px;
+	margin-left: 5%;
+	background-color: rgb(56, 182, 171);
+}
+
+.image1 {
+	background: url('/images/toblur.jpg');
+	background-position: center;
+	background-size: cover;
+	opacity: 0.8;
+}
+.image2 {
+	background: url('/images/mountain.jpeg');
+	background-position: center;
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.centerText {
+	line-height: 150px;
+}
+
+.selectDevice {
+	width: 100%;
+	margin: auto;
+}
+
+.btn:active {
+	background-color: #154440;
+}
+
+.selectAll {
+	background-color: #d46784;
+}
+
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 50px;
+	left: 30px;
+	margin-bottom: 50px;
+}
+
+a.btn {
+	width: 250px;
+	font-size: 3em;
+	margin-right: 40px;
+
+}
+a .glyphicon {
+	top: 7px !important;
+}
+.btn:hover, .btn:focus, .btn.focus {
+    color: #FFF;
+		outline: none;
+    text-decoration: none;
+}
+#cancel {
+	background-color: #fff;
+	color: black;
+}
+.bg-yellow, .bg-green {
+	padding-top: 60px;
+}
+.bg-yellow a, .bg-green a {
+	color: #fff;
+}
+.bg-blue, .bg-green {
+	padding-top: 140px;
+	color: #fff;
+	font-size: 25px;
+}
+.tile-square {
+	font-size: 16px;
+}
+
+.tile-container {
+		width: 320px;
+}
+.tile-large, .tile-square {
+	margin: 5px;
+}
+.tile-area {
+	padding: 120px 10px 10px 20px;
+}
+
+</style>
+
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/jquery-ui/jquery-ui.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
+<script src="/js/script.js"></script>
+
+<script>if (window.module) module = window.module;</script>

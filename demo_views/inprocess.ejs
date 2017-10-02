@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+  <title>Mittaus käynnissä...</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+  <link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+  <link href="/css/styles.css" rel="stylesheet">
+  <script>if (window.module) module = window.module;</script>
+</head>
+
+<body id="grad">
+  <div class="jumbotron">
+    <h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;">Mittaus käynnissä...</h1>
+  </div>
+  <div class="container text-center">
+    <div class="intept">
+          <div class="loader"></div>
+          <h2 style="font: normal 36px roboto; margin: 50px 0 150px 0; color: #fff">Mittausohjeet toisella näytöllä</h2>
+          <a type="button" id="cancel" class="back"> Keskeytä</a>
+      <!--<div class="loader"></div>-->
+    </div>
+  </div>
+
+
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #F3E24F;
+  width: 74px;
+  height: 75px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 12%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.row {
+  margin-top: 100px;
+}
+
+.row a:hover{
+  text-decoration: none;
+}
+.intept {
+  margin-bottom: 10%;
+}
+.back {
+  font: normal 32px roboto;
+  margin: 50px 0px 0px 0px;
+  width: 200px;
+  height: 75px;
+  padding: 20px;
+  background-color: #F3E24F;
+  color: black;
+  font-size: 2em;
+  box-shadow: 3px 2px 3px 3px rgba(0,0,0,0.4);
+  border: none;
+}
+</style>
+
+<script>
+    var electron = require("electron");
+    var remote = electron.remote;
+    var index = remote.require("./index.js");
+    var exec = require('child_process').exec;
+
+    // Keskeyta returns user back to home page and erases all user's input:
+  	$('.back').on('click', function() {
+        // exec.child();
+        exec("echo 'Q\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+          console.log('exec error: ' + error);
+        }
+        });
+        window.location = "http://127.0.0.1:3000/";
+    });
+</script>
+
+</body>
+</html>

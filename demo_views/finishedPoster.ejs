@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tervetuloa Mittauskuutioon</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+		<h1 class="text-center">Mittaukset suoritettu!</h1>
+	</div>
+	<div class="container text-center">
+		<h1>Lisäohjeita kosketusnäytöllä.</h1>
+	</div>
+
+<script>
+	var electron = require("electron");
+	var remote = electron.remote;
+	var index = remote.require("./index.js");
+	var heightInstr = index.heightInstr;
+	var exec = remote.require("./exec.js");
+  var fs = require("fs");
+</script>
+
+<style>
+	h1.text-center {
+		margin-top: 100px;
+		font-size: 65px;
+		color: black;
+		margin: 30px 0px 30px 0px;
+	}
+	h1 {
+		margin-top: 300px;
+		color: #fff;
+		font-size: 60px;
+	}
+</style>
+
+</body>
+</html>
