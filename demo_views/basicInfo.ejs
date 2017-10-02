@@ -10,7 +10,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+	<link href="/css/basicinfo.css" rel="stylesheet">
 	<link href="/css/styles.css" rel="stylesheet">
+	
 </head>
 
 <body id="grad">
@@ -38,10 +40,12 @@
 			<div class="col-md-6"><a href="/" id="cancel"><span class="mif-chevron-thin-left"></span> Keskeytä</a></div>
 			<button class="col-md-6 button next"><a id="sendData">Seuraava <span class="mif-chevron-thin-right"></span></a></button>
 		</div>
+		<button><a href="/selectDevices"> Debug seuraava</a></button>
 	</form>
 
 
 	<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
+	
 	<script>
 		var util = require('util');
 		var exec = require('child_process').exec;
@@ -132,6 +136,7 @@
 					}
 				});
 
+				// Use timeout to make sure the putty log file exists and has been saved
 				setTimeout(function () {
 					allDone = checkTanitaResponse();
 					if (allDone) {
@@ -194,107 +199,6 @@
 		}
 
 	</script>
-
-	<style>
-		.jumbotron {
-			background-color: rgba(255, 255, 255, 0.4);
-			color: #51514E;
-			border-bottom: 5px solid #3C4145;
-			font-weight: bold;
-			width: 100%;
-		}
-
-		.userData {
-			text-align: center;
-			width: 30%;
-		}
-
-		.userData .row {
-			text-align: center;
-		}
-
-		#sendData,
-		#cancel {
-			width: 100%;
-			height: 60px;
-			font-size: 14px;
-			color: #fff;
-			margin-left: 40%;
-		}
-
-		#cancel {
-			margin-right: 30%;
-			margin-left: 0;
-			padding-top: 5%;
-		}
-
-		#sendData {
-			margin-top: 0px;
-			padding: 0px;
-		}
-
-		.mif-chevron-thin-left,
-		.mif-chevron-thin-right {
-			font-size: 25px;
-		}
-
-		#age,
-		#height {
-			height: 80px;
-		}
-
-		.input-control.text {
-			width: 100%;
-			margin-top: 15%;
-			font-size: 20px;
-		}
-
-		.button {
-			width: 49.5%;
-			margin-top: 3%;
-			height: 80px;
-		}
-
-		.group-of-buttons {
-			height: 80px;
-			margin-top: 15%;
-			width: 100%;
-		}
-
-		.group-of-buttons .button {
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
-		}
-
-		.group-of-buttons .button.active,
-		.group-of-buttons .toolbar-button.active {
-			background-color: #F3E24F;
-			color: #000;
-			box-shadow: none;
-		}
-
-		.gender .button {
-			height: 70px;
-		}
-
-		.keypad {
-			position: relative !important;
-		}
-
-		.keypad .key {
-			width: 70px;
-			height: 70px;
-		}
-
-		.next {
-			background: none;
-			border: none;
-			margin: 0px;
-		}
-
-		.input-control.required input {
-			border: none;
-		}
-	</style>
 </body>
 
 </html>
