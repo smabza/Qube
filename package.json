@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "Maria Parshina",
+  "author": "Maria Parshina, Joonas Aaltonen, Atte Laakso",
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
