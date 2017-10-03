@@ -1,0 +1,159 @@
+.tile-area {
+	text-align: center;
+	padding: 120px 10px 10px 20px;
+	height: 750px;
+	color: #fff;
+}
+.tile-container {
+	display: inline-block;
+}
+.tile-container:after {
+    clear: none;
+}
+.tile-container-one {
+	width: 670px;
+}
+.tile-container-two {
+	width: 240px;
+	margin-left: -4px;
+}
+.tile {
+	margin: 10px;
+}
+.tile-large {
+	margin: 10px;
+}
+.tile-square {
+	margin: 10px;
+	padding-top: 65px;
+	color: #fff;
+}
+.selectAll {
+	width: 320px;
+	height: 140px;
+	padding-top: 60px;
+	color: #fff;
+}
+.tile-seuraava {
+	height: 140px;
+}
+.tile-seuraava p {
+	font-size: 30px;
+}
+.image2 {
+	height: 320px;
+}
+.bg-inactive-red, .bg-inactive-orange, .bg-inactive-blue {
+	color: #B5B8B9;
+}
+.bg-inactive-red {
+	background-color: #897675;
+}
+.bg-inactive-orange {
+	background-color: #BD7440;
+}
+.bg-inactive-blue {
+	background-color: #5091AA;
+}
+
+body {
+	background: url('/images/kuutio.jpg');
+	background-position: center;
+}
+.container-fluid {
+	font-weight: bold;
+	margin-top: 250px;
+}
+
+.button {
+	/*background-color: #38b6ab;*/
+	color: #fff;
+	height: 200px;
+	width: 200px;
+}
+.measuringDevices {
+	font-size: 30px;
+	margin-left: 5%;
+	background-color: rgb(56, 182, 171);
+}
+
+.image1 {
+	background: url('/images/toblur.jpg');
+	background-position: center;
+	background-size: cover;
+	opacity: 0.8;
+}
+.image2 {
+	background: url('/images/mountain.jpeg');
+	background-position: center;
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.centerText {
+	line-height: 150px;
+}
+
+.selectDevice {
+	width: 100%;
+	margin: auto;
+}
+
+.btn:active {
+	background-color: #154440;
+}
+
+.selectAll {
+	background-color: #d46784;
+}
+
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 50px;
+	left: 30px;
+	margin-bottom: 50px;
+}
+
+a.btn {
+	width: 250px;
+	font-size: 3em;
+	margin-right: 40px;
+
+}
+a .glyphicon {
+	top: 7px !important;
+}
+.btn:hover, .btn:focus, .btn.focus {
+    color: #FFF;
+		outline: none;
+    text-decoration: none;
+}
+#cancel {
+	background-color: #fff;
+	color: black;
+}
+.bg-yellow, .bg-green {
+	padding-top: 60px;
+}
+.bg-yellow a, .bg-green a {
+	color: #fff;
+}
+.bg-blue, .bg-green {
+	padding-top: 140px;
+	color: #fff;
+	font-size: 25px;
+}
+.tile-square {
+	font-size: 16px;
+}
+
+.tile-container {
+		width: 320px;
+}
+.tile-large, .tile-square {
+	margin: 5px;
+}
+.tile-area {
+	padding: 120px 10px 10px 20px;
+}

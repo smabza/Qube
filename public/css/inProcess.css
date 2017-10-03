@@ -1,0 +1,45 @@
+
+/* loader class is commented out in the .ejs file... */
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #F3E24F;
+    width: 74px;
+    height: 75px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    margin-top: 12%;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .row {
+    margin-top: 100px;
+  }
+  
+  .row a:hover{
+    text-decoration: none;
+  }
+  .intept {
+    margin-bottom: 10%;
+  }
+  .back {
+    font: normal 32px roboto;
+    margin: 50px 0px 0px 0px;
+    width: 200px;
+    height: 75px;
+    padding: 20px;
+    background-color: #F3E24F;
+    color: black;
+    font-size: 2em;
+    box-shadow: 3px 2px 3px 3px rgba(0,0,0,0.4);
+    border: none;
+  }
