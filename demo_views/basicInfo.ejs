@@ -10,7 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
-	<link href="/css/basicinfo.css" rel="stylesheet">
+	
 	<link href="/css/styles.css" rel="stylesheet">
 	
 </head>
@@ -42,7 +42,8 @@
 		</div>
 		<button><a href="/selectDevices"> Debug seuraava</a></button>
 	</form>
-
+	
+	<link href="/css/basicInfo.css" rel="stylesheet">
 
 	<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
 	
@@ -161,41 +162,35 @@
 
 		function checkTanitaResponse() 
 		{
-			var text = readResponses();
+			var text;
+		
+			try 
+			{
+				text = fs.readFileSync('/home/kuutio/mittauskuutio/data.txt', 'utf8');
+				
+			}
+			catch (error) 
+			{
+				app.console.log("Problem reading file. Terminating and restarting putty to create new file.");
+				restartPutty();
+			}
 			
 
 			if (text.includes("@") && text.includes("D2") && text.includes("D0") && text.includes("D1") && text.includes("D4") && text.includes("D3")) {
 				app.console.log("File read, all Tanita responses found!")
 				return true;
 			}
-			else if (text !== null)
-			{
-				app.console.log("Not all Tanita responses found!");
-			}
 			else {
-				app.console.log("I/O Error :---DD")
+				app.console.log("Not all responses found. Terminating and restarting putty to create new file, try again.");
+				restartPutty();
 				return false;
 			}
 		}
 
-		function readResponses()
+		function restartPutty()
 		{
-			var text;
-			
-				try 
-				{
-					text = fs.readFileSync('/home/kuutio/mittauskuutio/data.txt', 'utf8');
-					
-				}
-				catch (error) 
-				{
-					app.console.log("Problem reading file. Terminating and restarting putty.");
-					exec("killall putty");
-					exec("putty -load 'Mittauskuutio'");
-				}
-
-				return text;
-			
+			exec("killall putty");
+			exec("putty -load 'Mittauskuutio'");	
 		}
 
 	</script>
