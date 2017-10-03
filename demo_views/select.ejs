@@ -56,21 +56,6 @@
 
 </body>
 </html>
-<script>
-	var exec = require('child_process').exec;
-
-	$('#seuraava').on('click', startMeasurements);
-
-	function startMeasurements() {
-		exec("echo 'G\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
-			console.log('stdout: ' + stdout);
-			console.log('stderr: ' + stderr);
-			if (error !== null) {
-				console.log('exec error: ' + error);
-			}
-		});
-	};
-</script>
 
 
 <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
@@ -80,21 +65,5 @@
 <script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
 <script src="/js/script.js"></script>
 
-<script>
-		var electron = require("electron");
-		var remote = electron.remote;
-		var index = remote.require("./index.js");
-		var electron = require("electron");
-		var remote = electron.remote;
-		var index = remote.require("./index.js");
-		var heightInstr = index.heightInstr;
-
-		$('#seuraava').on('click', function() {
-			heightInstr();
-		});
-		$('#violet').on('click', function() {
-			$('#violet').css('border', '5px solid #FAFE8D');
-		});
-
-</script>
+<script src="/js/menu.js"></script>
 <script>if (window.module) module = window.module;</script>

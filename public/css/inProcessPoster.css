@@ -1,0 +1,30 @@
+body {
+    height: 990px;
+  }
+  .container {
+    width: 86%;
+    height: 90%;
+    /*margin: 2% 0 2% 2%;*/
+    margin: 3% auto;
+  }
+   ol  {
+     padding-top: 10%;
+     width: 100%;
+     height: 900px;
+   }
+  ol li {
+    font-size: 40px;
+    font-weight: bold;
+    height: 11%;
+    text-align: left;
+    line-height: normal;
+  }
+  img {
+    height: 79%;
+  }
+  .image-instr {
+      width: 25%;
+  }
+  div.row {
+    height: 950px;
+  }
