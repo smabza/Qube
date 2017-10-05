@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to Qube Measuring Enviroment</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+		<h1 class="text-center"style="margin: 30px 0px 30px 0px; color: black;">Welcome to Qube Measuring Enviroment</h1>
+	</div>
+	<div class="container text-center">
+		<div class="stanewmeas">
+		<button type = "button" class="button yellowButton"
+		   role="button" id="reset"><a href="/basicinfo">Start new <br> measurement</a>
+		</div>
+	</div>
+
+<script>
+	var electron = require("electron");
+	var remote = electron.remote;
+	var index = remote.require("./index.js");
+	var heightInstr = index.heightInstr;
+	var exec = remote.require("./exec.js");
+  var fs = require("fs");
+
+	$('#reset').on('click', function() {
+    // check if the file exists asyncronously:
+    fs.stat('/home/kuutio/mittauskuutio/all_data.txt', (error, file) => {
+      if (!error && file.isFile()) {
+        fs.readFile('/home/kuutio/mittauskuutio/all_data.txt', 'utf8', function (err, data) {
+          if (err) {
+            return console.log(err);
+          }
+          // parse JSON and print first parameter:
+          results = data.split(",");
+          console.log(results[2]);
+        });
+      }
+      if (error && error.code === 'ENOENT') {
+        return resolve(false);
+      }
+    });
+
+		// Set TANITA pc mode on
+		exec("echo 'M1\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
+	  console.log('stdout: ' + stdout);
+	  console.log('stderr: ' + stderr);
+	  if (error !== null) {
+	    console.log('exec error: ' + error);
+	  }
+	});
+
+
+	// Reset TANITA
+	  exec("echo -ne 'Q\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
+	  console.log('stdout: ' + stdout);
+	  console.log('stderr: ' + stderr);
+	  if (error !== null) {
+	    console.log('exec error: ' + error);
+	  }
+	});
+
+	});
+</script>
+
+</body>
+</html>
