@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Basic Info </title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+	
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+		<h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;">Give your basic info</h1>
+	</div>
+
+	<form data-role="validator" class="container userData" data-on-submit="return false">
+		<div class="input-control text row" data-role="keypad">
+			<input data-validate-func="max, required" data-validate-arg="100" data-validate-hint="Invalid or no value!" type="text" placeholder="Ikä"
+			 id="age">
+			<span class="input-state-error mif-warning"></span>
+			<span class="input-state-success mif-checkmark"></span>
+		</div>
+		<div class="input-control text row" data-role="keypad">
+			<input type="text" id="height" placeholder="Pituus" data-validate-func="max, required" data-validate-arg="250" data-validate-hint="Invalid or no value!">
+			<span class="input-state-error mif-warning"></span>
+			<span class="input-state-success mif-checkmark"></span>
+		</div>
+		<div data-role="group" data-group-type="one-state" class="gender">
+			<input type="button" class="button" value="Mies" />
+			<input type="button" class="button" value="Nainen" />
+		</div>
+		<div class="row" style="margin-top: 60px;">
+			<div class="col-md-6"><a href="/" id="cancel"><span class="mif-chevron-thin-left"></span> Cancel</a></div>
+			<button class="col-md-6 button next"><a id="sendData">Next <span class="mif-chevron-thin-right"></span></a></button>
+		</div>
+		<button><a href="/selectDevices"> Debug next</a></button>
+	</form>
+
+	<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
+	<link href="/css/basicinfo.css" rel="stylesheet">
+	<script src="/js/basicInfo.js">	</script>
+
+</body>
+
+</html>
