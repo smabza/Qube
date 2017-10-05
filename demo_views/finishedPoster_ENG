@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to Qube Measuring Enviroment</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+		<h1 class="text-center">Measuring completed!</h1>
+	</div>
+	<div class="container text-center">
+		<h1>Additional information on touch screen</h1>
+	</div>
+
+<script>
+	var electron = require("electron");
+	var remote = electron.remote;
+	var index = remote.require("./index.js");
+	var heightInstr = index.heightInstr;
+	var exec = remote.require("./exec.js");
+  var fs = require("fs");
+</script>
+
+<link rel="stylesheet" href="/css/finishedPoster.css">
+
+</body>
+</html>
