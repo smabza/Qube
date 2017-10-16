@@ -10,7 +10,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
-	<link href="/css/styles.css" rel="stylesheet">
 	
 </head>
 
@@ -22,12 +21,13 @@
 	<form data-role="validator" class="container userData" data-on-submit="return false">
 		<div class="input-control text row" data-role="keypad">
 			<input data-validate-func="max, required" data-validate-arg="100" data-validate-hint="Invalid or no value!" type="text" placeholder="Ikä"
-			 id="age">
+			 id="age" value="88">
 			<span class="input-state-error mif-warning"></span>
 			<span class="input-state-success mif-checkmark"></span>
 		</div>
 		<div class="input-control text row" data-role="keypad">
-			<input type="text" id="height" placeholder="Pituus" data-validate-func="max, required" data-validate-arg="250" data-validate-hint="Invalid or no value!">
+			<input type="text" id="height" placeholder="Pituus" data-validate-func="max, required" data-validate-arg="250" 
+			data-validate-hint="Invalid or no value!" value="140">
 			<span class="input-state-error mif-warning"></span>
 			<span class="input-state-success mif-checkmark"></span>
 		</div>
@@ -44,7 +44,8 @@
 	
 
 	<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
-	<link href="/css/basicinfo.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/basicInfo.css" rel="stylesheet">
 	<script src="/js/basicInfo.js">	</script>
 </body>
 

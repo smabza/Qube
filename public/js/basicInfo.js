@@ -118,7 +118,7 @@ function checkTanitaResponse()
 
     try 
     {
-        text = fs.readFileSync('/home/kuutio/mittauskuutio/data.txt', 'utf8');
+        text = fs.readFileSync("public/logs/data.txt", "utf8");
         
     }
     catch (error) 
