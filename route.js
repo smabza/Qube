@@ -30,8 +30,8 @@ var results = function(req, res, next) {
     res.render('results', {title: 'Tulokset'});
 };
 
-var pituus = function(req, res, next) {
-    res.render('pituus', {title: 'Pituus'});
+var inProcessPoster = function(req, res, next) {
+    res.render('inProcessPoster', {title: 'inProcessPoster'});
 };
 
 // Mittauskuutio welcome screen
@@ -75,7 +75,7 @@ module.exports.measurementsInProcess = measurementsInProcess;
 module.exports.results = results;
 
 // height instructions
-module.exports.pituus = pituus;
+module.exports.inProcessPoster = inProcessPoster;
 
 module.exports.poster = poster;
 

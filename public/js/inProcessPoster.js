@@ -4,31 +4,23 @@ var remote = electron.remote;
 var index = remote.require("./index.js");
 var measumentEnded = index.measumentEnded;
 var exec = require('child_process').exec;
+const app = remote.app;
 
-function editData() {
-  exec("/home/kuutio/Työpöytä/electron_demo/scripts/edit_data",function (error, stdout, stderr) {
-  console.log('stdout: ' + stdout);
-  console.log('stderr: ' + stderr);
-  if (error !== null) {
-    console.log('exec error: ' + error);
-    }
-  });
-};
-// check if the file exists asyncronously:
-setInterval( function() {
-  //editData();
-  fs.stat('/home/kuutio/mittauskuutio/all_data.txt', (error, file) => {
-        if (!error && file.isFile()) {
-          fs.readFile('/home/kuutio/mittauskuutio/all_data.txt', 'utf8', function (err, data) {
-            if (err) {
-              return console.log(err);
-            }
-            window.location = "http://127.0.0.1:3000/results";
-            measumentEnded();
-          });
-        }
-        if (error && error.code === 'ENOENT') {
-          //return resolve(false);
-        }
-      });
-}, 5000);
+// Reads log, tries to find checksum to see if whole log exists
+setInterval(readLog, 2000);
+
+function readLog() {
+	var puttyLog = fs.readFileSync('public/logs/data.txt', 'utf8');
+
+	var checksum = "CS";
+	for (var index = 0; index < puttyLog.length; index++) {
+		var sub = puttyLog.substr(index, checksum.length);
+		// If checksum exists, show results
+		if (sub === checksum)
+		{
+			app.console.log("Checksum found, ready to show results!");
+			window.location = "http://127.0.0.1:3000/results";
+			measumentEnded();
+		}
+	}
+}   

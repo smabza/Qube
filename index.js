@@ -35,6 +35,16 @@ app.use(session({secret: 'secret strategic xxzzz code'}));
 app.use(express.static(__dirname + '/bower_components')); // bootstrap
 app.use(express.static(__dirname + '/public'));
 
+// Require log descriptions and create a global shared object
+global.logDescriptions = require("./public/logs/descriptions.js");
+
+
+
+
+
+
+
+
 
 /* ================
   IMPORTING ROUTES
@@ -54,8 +64,8 @@ app.get('/measurementsInProcess', route.measurementsInProcess);
 // results
  app.get('/results', route.results);
 
-// height
-app.get('/pituus', route.pituus);
+// 2nd screen in process
+app.get('/inProcessPoster', route.inProcessPoster);
 
 // poster for the big screen
 app.get('/poster', route.poster);
@@ -118,7 +128,7 @@ function heightInstr() {
      //fullscreen: true
     });
     //  secondWindow.webContents.openDevTools();*/
-     secondWindow.loadURL('http://127.0.0.1:3000/pituus');
+     secondWindow.loadURL('http://127.0.0.1:3000/inProcessPoster');
      //secondWindow.webContents.openDevTools();
      console.log("watch second screen");
    }

@@ -1,3 +1,4 @@
+module.exports = 
 {
     "Da": "Date",
     "TI": "Time",
@@ -66,4 +67,4 @@
     "ST": "Trunk Fat % score",
     "sT": "Trunk Muscle mass score",
     "CS": "Check sum"  
-}
+};

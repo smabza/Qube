@@ -13,6 +13,16 @@ for (var index = 0; index < log.length; index++)
     }
 }
 
+for (var index = log.length; index > 0; index--) 
+{
+    var sub = log.substr(index, start.length);
+    if (sub === "aH")
+    {
+        log = log.slice(0, index);
+        break;
+    }
+}
+
 
 var descriptions = {
     "Da": "Date",
@@ -112,7 +122,7 @@ for (var index = 0; index < logKey.length; index++)
     }
 
 // It's possible to search the JSON with the keys
-console.log("Print logPairs.AG: " + logPairs.AG);   // AG : 22, age
+// console.log("Print logPairs.AG: " + logPairs.AG);   // AG : 22, age
 
 // Example of extracting values from the arrays and objects
 // console.log(logKey[7]); // => Wk
@@ -144,8 +154,6 @@ for (var key in logDescVal) {
     }
 }
 
-for (var index = 0; index < elementKeys.length; index++) {
-    console.log(elementKeys[index]);
-    
-}
-
+// for (var index = 0; index < elementKeys.length; index++) {
+//     console.log(elementKeys[index]);
+// }
