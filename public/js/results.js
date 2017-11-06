@@ -4,50 +4,17 @@ var remote = electron.remote;
 var indexJs = remote.require("./index.js");
 const app = remote.app;
 
-/* =======================================
-Read all_data file if it exist, then
-create DOM elements with the values parsed
-from the file, then delete the file.
-======================================= */
-/*fs.stat('/home/kuutio/mittauskuutio/all_data.txt', (error, file) => {
-      if (!error && file.isFile()) {
-        fs.readFile('/home/kuutio/mittauskuutio/all_data.txt', 'utf8', function (err, data) {
-          if (err) {
-            return console.log(err);
-          }
-          // parse JSON and print first parameter:
-          results = data.split(",");
-          console.log(results[2]);
-          document.getElementById('weight').innerHTML = "Paino: " + "</br>" + results[0];
-					document.getElementById('fatPercent').innerHTML = "Rasvaprosentti: " + "</br>" + results[1];
-					document.getElementById('BMI').innerHTML = "BMI: " + "</br>" + results[2];
-					document.getElementById('viskFat').innerHTML = "Viskeraalinen rasva: " + "</br>" + results[3];
-					document.getElementById('BMR').innerHTML = "BMR: " + "</br>" + results[4];
-					document.getElementById('metAge').innerHTML = "Metabolinen ikä: " + "</br>" + results[5];
-
-					exec("find /home/kuutio/mittauskuutio/ -name "+"*all_data.txt"+" -type f -exec rm {} \\;", function (error, stdout, stderr) {
-					  console.log('stdout: ' + stdout);
-					  console.log('stderr: ' + stderr);
-        });
-      if (error && error.code === 'ENOENT') {
-        //return resolve(false);
-      }
-    });
-	}
-});
-*/
-/////////////////////////////////////////////////
-
 try {
     var descriptions = remote.getGlobal("logDescriptions");
-    app.console.log(descriptions.AG);
+    var results = remote.getGlobal("resultJSONs");
+    // app.console.log(descriptions.AG);
+    // app.console.log(results);
 } 
 catch (error) {
     app.console.log(error);
 }
 
-app.console.log("WAT?");
-var log = fs.readFileSync('public/logs/data.txt', 'utf8');
+var log = fs.readFileSync('public/logs/data1.txt', 'utf8');
 
 // Cut off all unnecessary stuff from the beginning until "Da, ..."
 var start = "Da";
@@ -71,7 +38,7 @@ for (var index = log.length; index > 0; index--)
     }
 }
 
-app.console.log(log)
+// app.console.log(log)
 
 var logKey = [];
 var logVal = [];
@@ -100,14 +67,15 @@ for (var index = 0; index < logKey.length; index++)
         logPairs[logKey[index]] = logVal[index];
     }
 
+/*
 // It's possible to search the JSON with the keys
 app.console.log("Print logPairs.AG: " + logPairs.AG);   // AG : 22, age
 
 // Example of extracting values from the arrays and objects
 app.console.log("logKey[7] " + logKey[7]); // => Wk
-//app.console.log(descriptions[logKey[7]]); // => Weight
+app.console.log(descriptions[logKey[7]]); // => Weight
 app.console.log(logVal[7]); // => 110,6
-
+*/
 
 // Connect descriptions and values
 // Find logKey with index, find description with the key and add value to the description
@@ -132,7 +100,7 @@ var elementKeys = Object.keys(logDescVal);
         document.body.appendChild(newParagraph);
         index++;
     }
-}*/
+}
 
 app.console.log("Test");
 
@@ -146,3 +114,55 @@ document.getElementById('BMI').innerHTML = "BMI: " + "</br>" + logPairs.MI;
 document.getElementById('viskFat').innerHTML = "Viskeraalinen rasva: " + "</br>" + logPairs.IF;
 document.getElementById('BMR').innerHTML = "BMR: " + "</br>" + logPairs.rB;
 document.getElementById('metAge').innerHTML = "Metabolinen ikä: " + "</br>" + logPairs.rA;
+*/
+
+// Always print header values
+resultSelector(0);
+
+function resultSelector(scope)
+{
+    app.console.log(scope);
+    var resultKeys;
+    switch (scope) {
+        case 0:
+            resultKeys = Object.keys(results.headerValues);
+            elementId = "resultsHeader";
+            showResults(resultKeys, elementId);
+            break;
+        case 1:
+            resultKeys = Object.keys(results.basicResults);
+            elementId = "results";
+            showResults(resultKeys, elementId);
+            break;
+        case 2:
+            resultKeys = Object.keys(results.extensiveResults);
+            elementId = "results";
+            showResults(resultKeys, elementId);
+            break; 
+        default:
+            break;
+    }
+}
+
+// Print data on page
+// Extract values from logDescVal
+// Add object key from array and the extracted value to the paragraph
+// Append paragraph to the page
+function showResults(resultKeys, elementId)
+{
+    var index = 0;
+    for (var key in resultKeys) 
+    {
+        if (resultKeys.hasOwnProperty(key)) 
+        {
+            // Find the value from logDescVal object by iterating through resultKeys array
+            // For example if resultKeys[0] = "Weight" => logDescVal["Weight"] = 110,1
+            var elementValue = JSON.stringify(logDescVal[resultKeys[index]]);     // ??! Git push ja kiitos, my job here is done
+            var newParagraph = document.createElement("p");          
+            newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
+           // document.body.appendChild(newParagraph);
+            document.getElementById(elementId).appendChild(newParagraph);
+            index++;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+__Otsikkotiedot__
+"Da": "Date",
+"TI": "Time",
+"Bt": "Body type",
+"GE": "Gender",
+"AG": "Age",
+"Hm": "Height"
+
+__"Yleiset" mittaustulokset__
+"Wk": "Weight",
+"FW": "Body fat %",
+"fW": "Fat mass",
+"MW": "Fat free mass",  // lean body mass + bones
+"mW": "Muscle mass",    // Nimetään lihakset ja sisäelimet massaksi, "lean body mass"
+"bW": "Bone mass", 
+"wW": "TBW",        // Nestemassa, total body water
+"ww": "TBW %",      // Nesteprosentti
+"MI": "BMI",
+"OV": "Degree of obesity",
+"IF": "Visceral fat rating",
+"rB": "BMR kcal",
+"rA": "Metabolic age",
+
+__Laajemmat mittaustulokset__
+"Wk": "Weight",
+"FW": "Body fat %",
+"fW": "Fat mass",
+"MW": "Fat free mass",  // lean body mass + bones
+"mW": "Muscle mass",    // Nimetään lihakset ja sisäelimet massaksi, "lean body mass"
+"bW": "Bone mass", 
+"wW": "TBW",        // Nestemassa, total body water
+"ww": "TBW %",      // Nesteprosentti
+"wI": "Intracellular water (ICW)",  // Solun sisäinen vesi
+"wO": "Extracellular water (ECW)",  // Solun ulkoinen vesi
+"wo": "ECW %",                      // %-arvo edellisestä
+"MI": "BMI",
+"OV": "Degree of obesity",
+"IF": "Visceral fat rating",
+"LP": "Leg muscle score",
+"rB": "BMR kcal",
+"rJ": "BMR score",
+"rA": "Metabolic age",
+__Oikea jalka__
+"FR": "Right Leg Fat %",
+"fR": "Right Leg Fat mass",
+"mR": "Right Leg Muscle mass",
+"SR": "Right Leg Fat % score",          // Arvo 1-4
+"sR": "Right Leg Muscle mass score",    // Arvo 1-4
+__Vasen jalka__
+"FL": "Left Leg Fat %",
+"fL": "Left Leg Fat mass",
+"mL": "Left Leg Muscle mass",
+"SL": "Left Leg Fat % score",
+"sL": "Left Leg Muscle mass score",
+__Oikea käsi__
+"Fr": "Right Arm Fat %",
+"fr": "Right Arm Fat mass",
+"mr": "Right Arm Muscle mass",
+"Sr": "Right Arm Fat % score",
+"sr": "Right Arm Muscle mass score",
+__Vasen käsi__
+"Fl": "Left Arm Fat %",
+"fl": "Left Arm Fat mass",
+"ml": "Left Arm Muscle mass",
+"Sl": "Left Arm Fat % score",
+"sl": "Left Arm Muscle mass score",
+__Ylävartalo__
+"FT": "Trunk Fat %",
+"fT": "Trunk Fat mass",
+"mT": "Trunk Muscle mass",
+"ST": "Trunk Fat % score",
+"sT": "Trunk Muscle mass score",
+"CS": "Check sum" 

@@ -1,0 +1,10 @@
+/* Style the header */
+.header {
+    padding: 50px;
+    text-align: center;
+    align-content: center;
+    height: 30%;
+}
+.header p {
+    display: inline-block;
+}
