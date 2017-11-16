@@ -16,7 +16,7 @@ module.exports =
     "bW": "Bone mass",
     "wW": "TBW",
     "ww": "TBW %",
-    "wl": "Intracellular water (ICW)",
+    "wI": "Intracellular water (ICW)",
     "wO": "Extracellular water (ECW)",
     "wo": "ECW %",
     "MI": "BMI",

@@ -4,7 +4,6 @@ module.exports =
     {
         "Date" : "",
         "Time" : "",
-        "Body type" : "",
         "Gender" : "",
         "Age" : "",
         "Height" : ""
@@ -23,7 +22,6 @@ module.exports =
         "BMI" : "",
         "Degree of obesity" : "",
         "Visceral fat rating" : "",
-        "Leg muscle score" : "",
         "BMR kcal" : "",
         "BMR score" : "",
         "Metabolic age" : ""

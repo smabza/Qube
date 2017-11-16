@@ -1,9 +1,10 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
 	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
 	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/results_new.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
 </head>
@@ -11,14 +12,20 @@
 <body id="grad">
 	<div class="jumbotron">
         <h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;">Tulokset</h1>
-		<button type="button" onclick="resultSelector(1)">Show basic results</button>
-		<button type="button" onclick="resultSelector(2)">Show extensive results</button>
+		<button type="button" onclick="resultSelector('basic')">Show basic results</button>
+		<button type="button" onclick="resultSelector('extensive')">Show extensive results</button>
 	</div>
 
 	<!-- Results are appended into these divs in results.js -->
-	<div class="header" id="resultsHeader">
+	<div class="header2" id="resultsHeader">
+		<h2>General info:</h2>
 	</div>
-	<div id="results"></div>
+	<div id="resultsTitle"><h2>Measurement results:</h2></div>
+	<div class="sideMargin"></br></div>
+	<div id="results">
+		
+	</div>
+	<div class="sideMargin"></br></div>
 	
 	<script src="/js/results.js"></script>
 
@@ -36,4 +43,4 @@
 <script>if (window.module) module = window.module;</script>
 
 
- <link href="/css/results_new.css" rel="stylesheet">
+ 
