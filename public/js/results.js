@@ -85,32 +85,39 @@ for (var index = 0; index < logKey.length; index++)
         logDescVal[descriptions[logKey[index]]] = logVal[index];    // What?!
     }
 
-app.console.log(logDescVal);
+// Log this to see that the descriptions and values work
+// app.console.log(logDescVal);
 
-// Always print header values
+// Always print header values and basic results first
 resultSelector("header");
+resultSelector("basic");
 
-// Function that selects 
+// Function that selects the results to show
 function resultSelector(scope)
 {
     app.console.log(scope);
     var resultKeys;
+    var elementId;
+    var showBodyParts;
     switch (scope) {
         case "header":
             // Save JSON object keys into an array, pick the DOM element to use and run function
             resultKeys = Object.keys(results.headerValues);
             elementId = "resultsHeader";
-            showResults(resultKeys, elementId);
+            showBodyParts = false;
+            showResults(resultKeys, elementId, showBodyParts);
             break;
         case "basic":
             resultKeys = Object.keys(results.basicResults);
             elementId = "results";
-            showResults(resultKeys, elementId);
+            showBodyParts = false;
+            showResults(resultKeys, elementId, showBodyParts);
             break;
         case "extensive":
             resultKeys = Object.keys(results.extensiveResults);
             elementId = "results";
-            showResults(resultKeys, elementId);
+            showBodyParts = true;
+            showResults(resultKeys, elementId, showBodyParts);
             break; 
         default:
             break;
@@ -121,7 +128,7 @@ function resultSelector(scope)
 // Extract values from logDescVal
 // Add object key from array and the extracted value to the paragraph
 // Append paragraph to the page
-function showResults(resultKeys, elementId)
+function showResults(resultKeys, elementId, showBodyParts)
 {
     var newParagraph;
     var resultsNode = document.getElementById("results");
@@ -136,17 +143,26 @@ function showResults(resultKeys, elementId)
     var index = 0;
     for (var key in resultKeys) 
     {
-        app.console.log(resultKeys[index]);
+      //  app.console.log(resultKeys[index]);
       
         if (resultKeys.hasOwnProperty(key)) 
         {
             // Find the value from logDescVal object by iterating through resultKeys array
-            // For example if resultKeys[0] = "Weight" => logDescVal["Weight"] = 110,1
+            // For example resultKeys[0] = "Weight" => logDescVal["Weight"] = 110,1
             var elementValue = JSON.stringify(logDescVal[resultKeys[index]]);     // ??! Git push ja kiitos, my job here is done
             newParagraph = document.createElement("p");
             newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
             document.getElementById(elementId).appendChild(newParagraph);
             index++;
         }
-    }l
+    }
+    if (showBodyParts === true)
+    {
+        addBodyPartData(elementId);
+    }
+}
+
+function addBodyPartData(elementId)
+{
+    document.getElementById("bodyPictures").style.display = "block";
 }
