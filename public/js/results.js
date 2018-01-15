@@ -4,14 +4,16 @@ var remote = electron.remote;
 var indexJs = remote.require("./index.js");
 const app = remote.app;
 
-try {
+try 
+{
     // Import descriptions.js and resultExports.js -- No module.imports in client side...
     var descriptions = remote.getGlobal("logDescriptions");
     var results = remote.getGlobal("resultJSONs");
     // app.console.log(descriptions.AG);
     // app.console.log(results);
 } 
-catch (error) {
+catch (error) 
+{
     app.console.log(error);
 }
 
@@ -92,10 +94,9 @@ for (var index = 0; index < logKey.length; index++)
 resultSelector("header");
 resultSelector("basic");
 
-// Function that selects the results to show
+// Function that selects the results to be shown (parameter scope comes from results_new.ejs button)
 function resultSelector(scope)
 {
-    app.console.log(scope);
     var resultKeys;
     var elementId;
     var showBodyParts;
@@ -104,20 +105,17 @@ function resultSelector(scope)
             // Save JSON object keys into an array, pick the DOM element to use and run function
             resultKeys = Object.keys(results.headerValues);
             elementId = "resultsHeader";
-            showBodyParts = false;
-            showResults(resultKeys, elementId, showBodyParts);
+            showResults(resultKeys, elementId);
             break;
         case "basic":
             resultKeys = Object.keys(results.basicResults);
             elementId = "results";
-            showBodyParts = false;
-            showResults(resultKeys, elementId, showBodyParts);
+            showResults(resultKeys, elementId);
             break;
         case "extensive":
             resultKeys = Object.keys(results.extensiveResults);
             elementId = "results";
-            showBodyParts = true;
-            showResults(resultKeys, elementId, showBodyParts);
+            showResults(resultKeys, elementId);
             break; 
         default:
             break;
@@ -128,7 +126,7 @@ function resultSelector(scope)
 // Extract values from logDescVal
 // Add object key from array and the extracted value to the paragraph
 // Append paragraph to the page
-function showResults(resultKeys, elementId, showBodyParts)
+function showResults(resultKeys, elementId)
 {
     var newParagraph;
     var resultsNode = document.getElementById("results");
@@ -149,20 +147,11 @@ function showResults(resultKeys, elementId, showBodyParts)
         {
             // Find the value from logDescVal object by iterating through resultKeys array
             // For example resultKeys[0] = "Weight" => logDescVal["Weight"] = 110,1
-            var elementValue = JSON.stringify(logDescVal[resultKeys[index]]);     // ??! Git push ja kiitos, my job here is done
+            var elementValue = logDescVal[resultKeys[index]];     // ??! Git push ja kiitos, my job here is done
             newParagraph = document.createElement("p");
             newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
             document.getElementById(elementId).appendChild(newParagraph);
             index++;
         }
     }
-    if (showBodyParts === true)
-    {
-        addBodyPartData(elementId);
-    }
-}
-
-function addBodyPartData(elementId)
-{
-    document.getElementById("bodyPictures").style.display = "block";
 }

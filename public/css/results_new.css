@@ -1,9 +1,10 @@
 /* Style the header */
 .header2 {
-    padding: 50px;
+    padding: 1.5%;
     text-align: center;
     align-content: center;
-    height: 25%;
+    /* height: 25%; */
+    background-color: red;
 }
 .header2 p {
     display: inline-block;

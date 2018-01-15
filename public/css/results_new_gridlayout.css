@@ -1,0 +1,78 @@
+.gridWrapper 
+{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.sideMarginLeft
+{
+    /*grid-column-start: 1;
+    grid-column-end: 4;*/
+    grid-column: 1 / 4;
+    
+    grid-row: 1 / 7;
+}
+
+.sideMarginRight
+{
+    grid-column: 14 / 17;
+    grid-row: 1 / 7;
+}
+
+/* .resultButtons
+{
+    grid-row: 1;
+    grid-column: 4 / 14;
+} */
+
+#basicsButton, #extensivesButton, #limbsButton {
+    width: 31%;
+    margin: 1%;
+    display: inline-block;
+    text-align: center;
+    padding: 1%;
+    font: bold;
+    border-radius: 12px;
+}
+
+#resultsHeader
+{
+    grid-column: 4 / 14;
+    grid-row: 1;
+    padding: 1.5%;
+    text-align: center;
+    align-content: center;
+}
+
+#results 
+{
+    grid-column: 4 / 14;
+    grid-row: 2 / 7;
+}
+
+#results p {
+   /* float: left;*/
+     width: 31.7%; 
+    display: inline-block; 
+    background-color: rgb(255, 235, 122);
+    border: thick solid peru;
+    text-align: center; 
+    padding: 0.8%;
+    margin: 0.8%;
+    font-size: 1.2em;
+    border-radius: 15px;
+}
+
+
+.header2 p {
+    display: inline-block;
+    background-color: lightblue;
+    border: thick solid turquoise;
+    text-align: center; 
+    padding: 0.8%;
+    margin: 1%;
+    font-size: 1.5em;
+    font: bold;
+    border-radius: 15px;
+}

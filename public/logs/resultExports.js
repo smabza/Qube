@@ -17,13 +17,13 @@ module.exports =
         "Fat free mass" : "",
         "Muscle mass" : "",
         "Bone mass" : "", 
-        "TBW" : "",
-        "TBW %" : "",
-        "BMI" : "",
+        "Total Body Water" : "",
+        "Total Body Water %" : "",
+        "Body Mass Index" : "",
         "Degree of obesity" : "",
         "Visceral fat rating" : "",
-        "BMR kcal" : "",
-        "BMR score" : "",
+        "Basic Metabolic Rate kcal" : "",
+        "Basic Metabolic Rate score" : "",
         "Metabolic age" : ""
     },
 
@@ -35,17 +35,17 @@ module.exports =
         "Fat free mass" : "",  // lean body mass + bones
         "Muscle mass" : "",    // Nimetään lihakset ja sisäelimet massaksi, "lean body mass"
         "Bone mass" : "", 
-        "TBW" : "",        // Nestemassa, total body water
-        "TBW %" : "",      // Nesteprosentti
+        "Total Body Water" : "",        // Nestemassa, total body water
+        "Total Body Water %" : "",      // Nesteprosentti
         "Intracellular water (ICW)" : "",  // Solun sisäinen vesi
         "Extracellular water (ECW)" : "",  // Solun ulkoinen vesi
         "ECW %" : "",                      // %-arvo edellisestä
-        "BMI" : "",
+        "Body Mass Index" : "",
         "Degree of obesity" : "",
         "Visceral fat rating" : "",
         "Leg muscle score" : "",
-        "BMR kcal" : "",
-        "BMR score" : "",
+        "Basic Metabolic Rate kcal" : "",
+        "Basic Metabolic Rate score" : "",
         "Metabolic age" : "",
     },    
     rightLeg :
