@@ -37,6 +37,8 @@ app.use(express.static(__dirname + '/public'));
 
 // Require log descriptions and create a global shared object
 global.logDescriptions = require("./public/logs/descriptions.js");
+global.resultJSONs = require("./public/logs/resultExports.js")
+
 
 
 

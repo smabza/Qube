@@ -1,0 +1,59 @@
+/* Style the header */
+.header2 {
+    padding: 1.5%;
+    text-align: center;
+    align-content: center;
+    /* height: 25%; */
+    background-color: red;
+}
+.header2 p {
+    display: inline-block;
+    background-color: lightblue;
+    border: thick solid turquoise;
+    text-align: center; 
+    padding: 0.8%;
+    margin: 1%;
+    font-size: 1.5em;
+    font: bold;
+}
+
+/* A narrow column that can be used as margin for results element*/
+.sideMargin {
+    float: left;
+    width: 5%;
+    background-color: black;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#resultsTitle { 
+    text-align: center;
+    padding: 1%;
+}
+
+#results {
+    float: left;
+    padding: 1%;
+    width: 90%;    
+}
+
+#results p {
+    float: left;
+    width: 18%;
+    background-color: rgb(255, 235, 122);
+    border: thick solid peru;
+    text-align: center; 
+    padding: 0.8%;
+    margin: 1%;
+    font-size: 1.2em;
+}
+
+#bodyPictures {
+    float: left;
+}
+

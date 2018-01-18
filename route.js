@@ -4,7 +4,7 @@
 
 /* START PAGE */
 var home = function(req, res, next) {
-   res.render('home', {title: 'Koti'});
+   res.render('results_new', {title: 'Koti'});
 };
 
 /* USER INPUTS PARAMETERS */
