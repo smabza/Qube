@@ -14,9 +14,6 @@
         <h1 class="text-center" style="font-size: 5.5em; margin: 20px 0px 20px 0px; color: black;">Tulokset</h1>
 	</div>
 	<div class="gridWrapper">
-		<div class="resultButtons">
-			
-		</div>
 		<!-- Results are appended into these divs in results.js -->
 		<div class="header2" id="resultsHeader">
 			<button id="basicsButton" type="button" onclick="resultSelector('basic')">Show basic results</button>
@@ -28,10 +25,12 @@
 		<div class="sideMarginLeft"></div>	<!-- Margin on the left side of results -->
 		<div id="results">
 			<!-- Do not add any elements in here manually
-				All elements are cleared when the result are printed -->
+				All elements are cleared when the results are printed -->
 		</div>
-	</br>
 		<div class="sideMarginRight"></div> <!-- Margin on the right side of results -->
+		<div class="exitArea">
+				<button id="exitButton" type="button">Exit</button>
+			</div>
 		<div id="bodyPictures" style="display: none">
 				<img src="/images/man_shadow4.png" alt="Body">
 				<img src="/images/Female_shadow3.png" alt="FBody">
