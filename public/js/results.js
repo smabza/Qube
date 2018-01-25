@@ -17,7 +17,7 @@ catch (error)
     app.console.log(error);
 }
 
-var log = fs.readFileSync('public/logs/data1.txt', 'utf8');
+var log = fs.readFileSync('public/logs/data.txt', 'utf8');
 
 // Cut off all unnecessary stuff from the beginning until "Da, ... which is date object"
 var start = "Da";

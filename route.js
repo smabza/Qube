@@ -4,7 +4,7 @@
 
 /* START PAGE */
 var home = function(req, res, next) {
-   res.render('results_new', {title: 'Koti'});
+   res.render('home', {title: 'Koti'});
 };
 
 /* USER INPUTS PARAMETERS */
@@ -27,7 +27,7 @@ var measurementsInProcess = function(req,res, next) {
 =============================== */
 
 var results = function(req, res, next) {
-    res.render('results', {title: 'Tulokset'});
+    res.render('results_new', {title: 'Tulokset'});
 };
 
 var inProcessPoster = function(req, res, next) {
