@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 
+<% text %>
+
 <head>
-	<title>Perustiedot </title>
+	<!--
+	<title><%= text.title %> </title> -->
 	<meta charset="UTF-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -15,29 +18,33 @@
 
 <body id="grad">
 	<div class="jumbotron">
-		<h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;">Anna perustietosi</h1>
+		<h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;"><%= text.prompt%></h1>
 	</div>
 
 	<form data-role="validator" class="container userData" data-on-submit="return false">
 		<div class="input-control text row" data-role="keypad">
-			<input data-validate-func="max, required" data-validate-arg="100" data-validate-hint="Invalid or no value!" type="text" placeholder="Ikä"
+			<input data-validate-func="max, required" data-validate-arg="100" data-validate-hint=<%= text.weightHint %> type="text" placeholder=<%= text.age %>
 			 id="age" value="88">
 			<span class="input-state-error mif-warning"></span>
 			<span class="input-state-success mif-checkmark"></span>
 		</div>
 		<div class="input-control text row" data-role="keypad">
-			<input type="text" id="height" placeholder="Pituus" data-validate-func="max, required" data-validate-arg="250" 
-			data-validate-hint="Invalid or no value!" value="140">
+			<input type="text" id="height" placeholder=<%= text.height %> data-validate-func="max, required" data-validate-arg="250" 
+			data-validate-hint=<%= text.heightHint %> value="140">
 			<span class="input-state-error mif-warning"></span>
 			<span class="input-state-success mif-checkmark"></span>
 		</div>
 		<div data-role="group" data-group-type="one-state" class="gender">
-			<input type="button" class="button" value="Mies" />
-			<input type="button" class="button" value="Nainen" />
+		<!--	<input type="button" class="button" value=<%= text.male %> />
+			<input type="button" class="button" value=<%= text.female %> />
+		-->
+			<!-- Don't change the id. It's used to lookup the selection -->
+			<input type="button" class="button" id="male" value=<%= text.male %> />
+			<input type="button" class="button" id="female" value=<%= text.female %> />
 		</div>
 		<div class="row" style="margin-top: 60px;">
-			<div class="col-md-6"><a href="/" id="cancel"><span class="mif-chevron-thin-left"></span> Keskeytä</a></div>
-			<button class="col-md-6 button next"><a id="sendData">Seuraava <span class="mif-chevron-thin-right"></span></a></button>
+			<div class="col-md-6"><a href="/" id="cancel"><span class="mif-chevron-thin-left"></span> <%= text.cancel%></a></div>
+			<button class="col-md-6 button next"><a id="sendData"><%= text.next %> <span class="mif-chevron-thin-right"></span></a></button>
 		</div>
 		<button><a href="/selectDevices">Debug seuraava</a></button>
 	</form>

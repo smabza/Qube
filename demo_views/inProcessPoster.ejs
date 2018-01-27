@@ -3,8 +3,10 @@
 
 <html>
 
+<% text %>
+
 <head>
-  <title>Mittalaitteen ohjeet</title>
+  <title><%= text.title %>></title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="/css/styles.css" rel="stylesheet">
@@ -20,14 +22,14 @@
 		    <div class="col-md-4 image-instr"><img src="/images/kehonkoostumus.png"></div>
         <div class="col-md-8">
           <ol>
-            <li>Ota kengät ja sukat pois.</li>
-            <li>Astu laitteelle ensimmäisen kuvan osoittamalla tavalla.</li>
-            <li>Odota, että laite suorittaa punnituksen.</li>
-            <li>Kun laitteen näytössä lukee "GRIP ON", tartu kapuloihin.</li>
-            <li>Laske kädet sivulle ja odota, että laite suorittaa mittaukset.</li>
-            <li>Kun laitteen näytössä lukee "GRIP OFF", laita kapulat takaisin telineisiin.</li>
-            <li>Astu pois laiteelta.</li>
-            <li>Tulosten analysoinnissa kestää noin 5 sekuntia.</li>
+            <li><%= text.instr1 %></li>
+            <li><%= text.instr2 %></li>
+            <li><%= text.instr3 %></li>
+            <li><%= text.instr4 %></li>
+            <li><%= text.instr5 %></li>
+            <li><%= text.instr6 %></li>
+            <li><%= text.instr7 %></li>
+            <li><%= text.instr8 %></li>
          </ol>
        </div>
     </div>

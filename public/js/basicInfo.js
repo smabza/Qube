@@ -23,11 +23,11 @@ $('#cancel').on('click', resetVariables);
 function sendData() {
     age = document.getElementById("age").value;
     height = document.getElementById("height").value;
-    gender = $(".active").val();
+    gender = $(".active").attr('id');
 
-    if (gender === "Mies") {
+    if (gender === "male") {
         gender = 1;
-    } else if (gender === "Nainen") {
+    } else if (gender === "female") {
         gender = 2;
     } else {
         gender = none;

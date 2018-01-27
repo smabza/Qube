@@ -38,11 +38,37 @@
 		<div class="sideMargin"></br></div> <!-- Margin on the right side of images -->
 	</div>
 	<script src="/js/results.js"></script>
-	
+
+
+<!-- Trigger the modal with a button -->
+<button class="btn btn-info btn-lg" onclick="showModal('data', 'text')" type="button"></button>
+<!-- Modal definition start -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p class="detail"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal definition end -->
+
 </body>
 
 </html>
 <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+
 <script src="/jquery/dist/jquery.min.js"></script>
 <script src="/jquery-ui/jquery-ui.min.js"></script>
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>

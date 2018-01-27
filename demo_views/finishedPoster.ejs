@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+<% text %>
 <head>
-	<title>Tervetuloa Mittauskuutioon</title>
+	<title><%= text.title %></title>
 	<meta charset="UTF-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -14,10 +15,10 @@
 
 <body id="grad">
 	<div class="jumbotron">
-		<h1 class="text-center">Mittaukset suoritettu!</h1>
+		<h1 class="text-center"><%= text.done %></h1>
 	</div>
 	<div class="container text-center">
-		<h1>Lisäohjeita kosketusnäytöllä.</h1>
+		<h1><%= text.prompt %></h1>
 	</div>
 
 <script>
