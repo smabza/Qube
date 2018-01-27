@@ -143,18 +143,22 @@ function showResults(resultKeys, elementId, showBodyParts)
     var index = 0;
     for (var key in resultKeys) 
     {
-      //  app.console.log(resultKeys[index]);
-      
-        if (resultKeys.hasOwnProperty(key)) 
+        (function()
         {
-            // Find the value from logDescVal object by iterating through resultKeys array
-            // For example resultKeys[0] = "Weight" => logDescVal["Weight"] = 110,1
-            var elementValue = JSON.stringify(logDescVal[resultKeys[index]]);     // ??! Git push ja kiitos, my job here is done
-            newParagraph = document.createElement("p");
-            newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
-            document.getElementById(elementId).appendChild(newParagraph);
-            index++;
-        }
+            if (resultKeys.hasOwnProperty(key))
+            {
+                // Find the value from logDescVal object by iterating through resultKeys array
+                // For example resultKeys[0] = "Weight" => logDescVal["Weight"] = 110,1
+                var elementValue = JSON.stringify(logDescVal[resultKeys[index]]);     // ??! Git push ja kiitos, my job here is done
+                var title = resultKeys[index] + ": " + elementValue;
+                newParagraph = document.createElement("p");
+                newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
+                document.getElementById(elementId).appendChild(newParagraph);
+                /* TODO: Need to add actual descriptions */
+                newParagraph.addEventListener("click", function() {showModal(title, "Description");})
+                index++;
+            }
+        })();
     }
     if (showBodyParts === true)
     {
@@ -165,4 +169,11 @@ function showResults(resultKeys, elementId, showBodyParts)
 function addBodyPartData(elementId)
 {
     document.getElementById("bodyPictures").style.display = "block";
+}
+
+function showModal(title, description)
+{
+   $("#myModal .modal-title").html(title)
+   $("#myModal .modal-body").html(description)
+   $("#myModal").modal();
 }

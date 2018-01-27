@@ -64,7 +64,7 @@ app.get('/selectDevices', route.selectDevices);
 app.get('/measurementsInProcess', route.measurementsInProcess);
 
 // results
- app.get('/results', route.results);
+app.get('/results', route.results);
 
 // 2nd screen in process
 app.get('/inProcessPoster', route.inProcessPoster);
@@ -75,6 +75,8 @@ app.get('/poster', route.poster);
 // when measurements are finished, show this on a PC screen
 app.get('/finished', route.finished);
 app.get('/finishedPoster', route.finishedPoster);
+
+app.post('/selectLanguage', route.selectLanguage);
 
 // 404 not found THIS SHOULD STAY LAST
 app.use(route.notFound404);

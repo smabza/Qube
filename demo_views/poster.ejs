@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
+<% text %>
   <head>
     <meta charset="utf-8">
-    <title>Welcome to Mittauskuutio!</title>
+    <title><%= text.title %></title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
@@ -10,8 +12,8 @@
   </head>
   <body id="grad">
     <div class="jumbotron">
-      <h1>Tervetuloa Mittauskuutioon!</h1>
-      <h3>Ole hyvä ja seuraa kosketusnäytön ohjeita.</h3>
+      <h1><%= text.title %></h1>
+      <h3><%= text.prompt %></h3>
   </div>
   </body>
 
