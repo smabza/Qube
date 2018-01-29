@@ -191,7 +191,8 @@ function finishedPosterText(lang) {
 }
 
 module.exports.language = language;
-module.exports.results_new = results_new;
+// TODO results_new page translations
+//module.exports.results_new = results_new;
 module.exports.selectText = selectText;
 module.exports.basicInfoText = basicInfoText;
 module.exports.inprocessText = inprocessText;
