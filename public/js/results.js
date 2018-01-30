@@ -4,6 +4,9 @@ var remote = electron.remote;
 var indexJs = remote.require("./index.js");
 const app = remote.app;
 
+var language = $('script[src*=results]').attr('data-language');
+console.log(language);
+
 try 
 {
     // Import descriptions.js and resultExports.js -- No module.imports in client side...
@@ -153,7 +156,7 @@ function showResults(resultKeys, elementId)
                 newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
                 document.getElementById(elementId).appendChild(newParagraph);
                 /* TODO: Need to add actual descriptions */
-                newParagraph.addEventListener("click", function() {showModal(title, "Description");})
+                newParagraph.addEventListener("click", function() {showModal(title, "Description");});
                 index++;
             }
         })();
@@ -165,7 +168,6 @@ function goHome()
 {
     window.location = "http://127.0.0.1:3000/";
     app.console.log("WAAWW")
-    document.getElementById("bodyPictures").style.display = "block";
 }
 
 function showModal(title, description)

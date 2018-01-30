@@ -1,11 +1,11 @@
-var language = {
+var controller = {
     lang: 'en',
-    get lang() {
-      return this.lang;
+    get getLang() {
+        return this.lang;
     },
-    set lang(lang) {
+    set setLang(newLang) {
         // Default english.
-      this.lang = lang == 'fi' ? 'fi' : 'en';
+        this.lang = newLang == 'fi' ? 'fi' : 'en';        
     }
 };
 
@@ -190,7 +190,7 @@ function finishedPosterText(lang) {
         return en_poster;
 }
 
-module.exports.language = language;
+module.exports.controller = controller;
 // TODO results_new page translations
 //module.exports.results_new = results_new;
 module.exports.selectText = selectText;

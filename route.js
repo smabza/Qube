@@ -2,11 +2,7 @@
   ROUTES FOR THE TOUCH SCREEN
 ============================ */
 
-var languageController = require('./lang.js');
-
-//languageController.language = 'fi';
-//languageController.language = 'en';
-
+var language = require('./lang.js');
 
 /* START PAGE */
 var home = function(req, res, next) {
@@ -14,22 +10,22 @@ var home = function(req, res, next) {
 };
 
 var selectLanguage = function(req, res) {
-    languageController.language = req.body.language;
+    language.controller.setLang = req.body.language;
     res.redirect('/basicInfo');
 };
 
 /* USER INPUTS PARAMETERS */
 var basicInfo = function(req, res, next) {
-   res.render('basicInfo', {text: languageController.basicInfoText(languageController.language)});
+   res.render('basicInfo', {text: language.basicInfoText(language.controller.getLang)});
 };
 
 /* USER SELECTS DEVICES */
 var selectDevices = function(req, res, next) {
-  res.render('select', {text: languageController.selectText(languageController.language)});
+  res.render('select', {text: language.selectText(language.controller.getLang)});
 };
 
 var measurementsInProcess = function(req,res, next) {
-     res.render('inprocess', {text: languageController.inprocessText(languageController.language)});
+     res.render('inprocess', {text: language.inprocessText(language.controller.getLang)});
 };
 
 
@@ -38,25 +34,25 @@ var measurementsInProcess = function(req,res, next) {
 =============================== */
 
 var results = function(req, res, next) {
-    res.render('results_new', {title: 'Tulokset'});
+    res.render('results_new', {lang: language.controller.getLang});
 };
 
 var inProcessPoster = function(req, res, next) {
-    res.render('inprocessPoster', {text: languageController.inprocessPosterText(languageController.language)});
+    res.render('inprocessPoster', {text: language.inprocessPosterText(language.controller.getLang)});
 };
 
 // Mittauskuutio welcome screen
 var poster = function(req, res, next) {
-    res.render('poster', {text: languageController.posterText(languageController.language)});
+    res.render('poster', {text: language.posterText(language.controller.getLang)});
 };
 
 var finished = function(req, res, next) {
-    res.render('finished', {text: languageController.finishedText(languageController.language)});
+    res.render('finished', {text: language.finishedText(language.controller.getLang)});
 };
 
  /* FINISHED PAGE BIG SCREEN */
 var finishedPoster = function(req, res, next) {
-    res.render('finishedPoster', {text: languageController.finishedPosterText(languageController.language)});
+    res.render('finishedPoster', {text: language.finishedPosterText(language.controller.getLang)});
  };
 
  // 404 not found
