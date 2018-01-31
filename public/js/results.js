@@ -20,7 +20,7 @@ catch (error)
     app.console.log(error);
 }
 
-var log = fs.readFileSync('public/logs/data1.txt', 'utf8');
+var log = fs.readFileSync('public/logs/data.txt', 'utf8');
 
 // Cut off all unnecessary stuff from the beginning until "Da, ... which is date object"
 var start = "Da";
@@ -150,7 +150,7 @@ function showResults(resultKeys, elementId)
             {
                 // Find the value from logDescVal object by iterating through resultKeys array
                 // For example resultKeys[0] = "Weight" => logDescVal["Weight"] = 110,1
-                var elementValue = JSON.stringify(logDescVal[resultKeys[index]]);     // ??! Git push ja kiitos, my job here is done
+                var elementValue = logDescVal[resultKeys[index]];     // ??! Git push ja kiitos, my job here is done
                 var title = resultKeys[index] + ": " + elementValue;
                 newParagraph = document.createElement("p");
                 newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));

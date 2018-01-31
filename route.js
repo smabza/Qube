@@ -38,7 +38,7 @@ var results = function(req, res, next) {
 };
 
 var inProcessPoster = function(req, res, next) {
-    res.render('inprocessPoster', {text: language.inprocessPosterText(language.controller.getLang)});
+    res.render('inProcessPoster', {text: language.inprocessPosterText(language.controller.getLang)});
 };
 
 // Mittauskuutio welcome screen
