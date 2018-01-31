@@ -3,11 +3,48 @@
 ============================ */
 
 var language = require('./lang.js');
+const nodemailer = require('nodemailer');
 
 /* START PAGE */
 var home = function(req, res, next) {
     res.render('home');
 };
+
+var sendeMail = function(req, res) {
+    console.log("Vitu awesome");
+    // TODO Get content and add to email.
+    // TODO Secure sender credentials.
+    //var content = req.body.email;
+    /*var transport = nodemailer.createTransport({
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false, // False for TLS.
+        requireTLS: true,
+        auth: {
+            user: "user@email.fi",
+            pass: "password"
+        },
+        tls: {
+            ciphers: "SSLv3"
+        }
+    });
+
+    let mailOptions = {
+        from: '"Atte Gates" <sender@email.fi>', // sender address
+        to: 'receiver@email.f', // list of receivers
+        subject: 'Hello', // Subject line
+        text: content
+    };
+
+    console.log(mailOptions)
+
+    transport.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log("Message sent: %s", info.messageId);
+    }); */
+}
 
 var selectLanguage = function(req, res) {
     language.controller.setLang = req.body.language;
@@ -91,6 +128,8 @@ module.exports.finished = finished;
 module.exports.finishedPoster = finishedPoster;
 
 module.exports.selectLanguage = selectLanguage;
+
+module.exports.sendeMail = sendeMail;
 
 // 404 not found
 module.exports.notFound404 = notFound404;

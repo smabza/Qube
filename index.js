@@ -77,6 +77,7 @@ app.get('/finished', route.finished);
 app.get('/finishedPoster', route.finishedPoster);
 
 app.post('/selectLanguage', route.selectLanguage);
+app.post('/sendeMail', route.sendeMail);
 
 // 404 not found THIS SHOULD STAY LAST
 app.use(route.notFound404);

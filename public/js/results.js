@@ -163,6 +163,30 @@ function showResults(resultKeys, elementId)
     }
 }
 
+
+/* 
+    Set hidden inputs to the send email form.
+    Gets the values from the results shown on the page.
+*/
+var sendEmailForm = $("#email");
+sendEmailForm.submit(function()
+{
+    // Empty the form before filling.
+    $("#email input[type='hidden']").remove();
+    var i = 0;
+    var results = $("div#results p").each(function()
+    {
+        var result = $(this).html();
+        var input = $("<input />", { name: i,
+                                     value: result,
+                                     type: "hidden"});
+        sendEmailForm.append(input);
+        i++;
+    });
+});
+
+
+
 // // EXIT BUTTON
 function goHome()
 {

@@ -22,12 +22,15 @@
 				Data such as date, time and gender -->
 		</div>
 		<div class="sideMarginLeft"></div>	<!-- Margin on the left side of results -->
-		<div id="results">
-			<!-- Do not add any elements in here manually
-				All elements are cleared when the results are printed -->
-		</div>
+            <div id="results">
+                <!-- Do not add any elements in here manually
+                    All elements are cleared when the results are printed -->
+            </div>
 		<div class="sideMarginRight"></div> <!-- Margin on the right side of results -->
 		<div class="exitArea">
+                <form id="email" action="sendEmail" method="POST">
+                    <button type="submit">Sähköposti</button>
+                </form>
 				<button id="exitButton" type="button" onclick="goHome()">Exit</button>
 			</div>
 		<div id="bodyPictures" style="display: none">
