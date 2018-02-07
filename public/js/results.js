@@ -125,7 +125,6 @@ function resultSelector(scope)
     }
 }
 
-// Print data on page
 // Extract values from logDescVal
 // Add object key from array and the extracted value to the paragraph
 // Append paragraph to the page
@@ -134,7 +133,7 @@ function showResults(resultKeys, elementId)
     var newParagraph;
     var resultsNode = document.getElementById("results");
     // Clear old results from the screen when switching between modes 
-    if (resultsNode.hasChildNodes)
+    if (resultsNode.hasChildNodes())
     {
         while(resultsNode.firstChild)
         {
@@ -162,7 +161,6 @@ function showResults(resultKeys, elementId)
         })();
     }
 }
-
 
 /* 
     Set hidden inputs to the send email form.

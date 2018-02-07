@@ -1,46 +1,78 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
 	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/results.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
 </head>
 
 <body id="grad">
 	<div class="jumbotron">
-		<h1 class="text-center" style="font-size: 5.5em; margin: 30px 0px 30px 0px; color: black;">Tulokset</h1>
+        <h1 class="text-center" style="font-size: 5.5em; margin: 20px 0px 20px 0px; color: black;">Tulokset</h1>
+	</div>
+	<div class="gridWrapper">
+		<!-- Results are appended into these divs in results.js -->
+		<div class="header2" id="resultsHeader">
+			<button id="basicsButton" type="button" onclick="resultSelector('basic')">Show basic results</button>
+			<button id="extensivesButton" type="button" onclick="resultSelector('extensive')">Show extensive results</button>
+			<button id="limbsButton" type="button">Show limb data</button>	<!-- FUNCTIONALITY NOT IMPLEMENTED YET -->
+		<!--	Result header is printed here in results.js
+				Data such as date, time and gender -->
+		</div>
+		<div class="sideMarginLeft"></div>	<!-- Margin on the left side of results -->
+            <div id="results">
+                <!-- Do not add any elements in here manually
+                    All elements are cleared when the results are printed -->
+            </div>
+		<div class="sideMarginRight"></div> <!-- Margin on the right side of results -->
+		<div class="exitArea">
+                <form id="email" action="sendEmail" method="POST">
+                    <button type="submit">Sähköposti</button>
+                </form>
+				<button id="exitButton" type="button" onclick="goHome()">Exit</button>
+			</div>
+		<div id="bodyPictures" style="display: none">
+				<img src="/images/man_shadow4.png" alt="Body">
+				<img src="/images/Female_shadow3.png" alt="FBody">
+		</div>
+		<div class="sideMargin"></br></div> <!-- Margin on the right side of images -->
 	</div>
 
-	<div class="tile-area">
-		<div class="tile-container">
-			<div class="tile-square bg-yellow" id="BMR" data-role="tile"></div>
-			<div class="tile-square bg-red" id="fatPercent" data-role="tile"></div>
-			<div class="tile-large bg-blue" id="viskFat" data-role="tile"></div>
-		</div>
-		<div class="tile-container">
-			<div class="tile-large bg-green" id="metAge" data-role="tile"></div>
-			<div class="tile-square bg-orange" id="BMI" data-role="tile"></div>
-			<div class="tile-square bg-violet" id="weight" data-role="tile"></div>
-		</div>
-		<h1>Tulokset näkyvät 15 sekuntia.</h1>
-	</div>
-	
-	<script src="/js/results.js"></script>
 
-	
-</body>
+<!-- Trigger the modal with a button -->
+<button class="btn btn-info btn-lg" onclick="showModal('data', 'text')" type="button"></button>
+<!-- Modal definition start -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-</html>
-<script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p class="detail"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal definition end -->
+
 <script src="/jquery/dist/jquery.min.js"></script>
 <script src="/jquery-ui/jquery-ui.min.js"></script>
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
 <script src="/js/script.js"></script>
+<script data-language=<%= lang %> src="/js/results.js"></script>
 
-<script>if (window.module) module = window.module;</script>
+</body>
 
-
-<link href="/css/results.css" rel="stylesheet">
+</html>
+ 

@@ -71,7 +71,7 @@ var measurementsInProcess = function(req,res, next) {
 =============================== */
 
 var results = function(req, res, next) {
-    res.render('results_new', {lang: language.controller.getLang});
+    res.render('results', {lang: language.controller.getLang});
 };
 
 var inProcessPoster = function(req, res, next) {

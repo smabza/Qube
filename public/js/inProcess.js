@@ -33,7 +33,7 @@ function readLog() {
 		if (sub === checksum)
 		{
 			app.console.log("Checksum found, ready to show results!");
-			showPoster();
+			//showPoster();
 			window.location = "http://127.0.0.1:3000/results";
 			
 		}
