@@ -133,6 +133,27 @@ var en_finishedPoster = {
 	prompt: "Additional instructions on the touch screen."
 }
 
+var fi_bloodPressure = {
+    title: "Blood pressure measurement",
+    introText: "Verenpaineen vaihtelu on luontaista ja siksi olosuhteet on vakioitava mahdollisimman hyvin. Mittaus tehdään mittaamalla kaksi peräkkäistä mittausta 1–2 minuutin välein.</br>Puoleen tuntiin ennen mittausta ei pidä harrastaa liikuntaa, tupakoida, juoda alkoholia, kahvia, teetä eikä kola- tai energiajuomia.</br>Huom! Täysin luotettava arvio verenpaineesta ei synny yhdellä kaksoismittauksella. Ammattilaisten vastaanottomittauksissa lasketaan neljänä eri vuorokautena tehtyjen kaksoismittauksien keskiarvot.",
+    instr1: ". Istu selkänojalliseen tuoliin, nojaudu selkänojaan ja istu mahdollisimman rennosti.", 
+    instr2: "Kiedo mansetti paljaan olkavarren ympärille siten, että sormi mahtuu mansetin ja olkavarren väliin.",
+    instr3: "Katso, että ilmaletkun kiinnityskohta on ylöspäin ja että letku kulkee vapaasti.",
+    instr4: "Tue käsivarsi noin 90 asteen kulmaan siten, että mansetti ja sydän ovat samalla tasolla. Pidä käsi rentona. Kun olet kiinnittänyt mansetin olkavarteen, rauhoitu ennen mittausta noin viiden minuutin ajaksi.",
+    instr5: "Suorita mittaus painamalla napista. Ole täysin rentona, älä puhu tai liiku mittauksen aikana. Toista mittaus 1-2 minuutin kuluttua ja merkitse molemmat tulokset muistiin."
+}
+
+var en_bloodPressure = {
+    // TODO KORJATKAA TÄÄ SAAAATANA
+    title: "Blood pressure measurement",
+    introText: "Verenpaineen vaihtelu on luontaista ja siksi olosuhteet on vakioitava mahdollisimman hyvin. Mittaus tehdään mittaamalla kaksi peräkkäistä mittausta 1–2 minuutin välein.</br>Puoleen tuntiin ennen mittausta ei pidä harrastaa liikuntaa, tupakoida, juoda alkoholia, kahvia, teetä eikä kola- tai energiajuomia.</br>Huom! Täysin luotettava arvio verenpaineesta ei synny yhdellä kaksoismittauksella. Ammattilaisten vastaanottomittauksissa lasketaan neljänä eri vuorokautena tehtyjen kaksoismittauksien keskiarvot.",
+    instr1: "Istu selkänojalliseen tuoliin, nojaudu selkänojaan ja istu mahdollisimman rennosti.", 
+    instr2: "Kiedo mansetti paljaan olkavarren ympärille siten, että sormi mahtuu mansetin ja olkavarren väliin.",
+    instr3: "Katso, että ilmaletkun kiinnityskohta on ylöspäin ja että letku kulkee vapaasti.",
+    instr4: "Tue käsivarsi noin 90 asteen kulmaan siten, että mansetti ja sydän ovat samalla tasolla. Pidä käsi rentona. Kun olet kiinnittänyt mansetin olkavarteen, rauhoitu ennen mittausta noin viiden minuutin ajaksi.",
+    instr5: "Suorita mittaus painamalla napista. Ole täysin rentona, älä puhu tai liiku mittauksen aikana. Toista mittaus 1-2 minuutin kuluttua ja merkitse molemmat tulokset muistiin."
+}
+
 function selectText(lang) {
     if (lang == 'fi')
         return fi_select;
@@ -190,9 +211,18 @@ function finishedPosterText(lang) {
         return en_poster;
 }
 
+function bloodPressureText(lang) {
+    if (lang == "fi") {
+        return fi_bloodPressure;
+    }
+    else {
+        return en_bloodPressure;
+    }
+}
+
 module.exports.controller = controller;
-// TODO results_new page translations
-//module.exports.results_new = results_new;
+// TODO results page translations
+//module.exports.results = results;
 module.exports.selectText = selectText;
 module.exports.basicInfoText = basicInfoText;
 module.exports.inprocessText = inprocessText;
@@ -200,3 +230,4 @@ module.exports.finishedText = finishedText;
 module.exports.inprocessPosterText = inprocessPosterText;
 module.exports.posterText = posterText;
 module.exports.finishedPosterText = finishedPosterText;
+module.exports.bloodPressureText = bloodPressureText;

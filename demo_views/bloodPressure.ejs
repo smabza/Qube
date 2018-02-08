@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<% text %>
+
+<head>
+	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+	<link href="/css/styles.css" rel="stylesheet">
+
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+        <h1 class="text-center" style="font-size: 5.5em; margin: 20px 0px 20px 0px; color: black;"><%= text.title %></h1>
+	</div>
+
+    <div class="instructions">
+        <p id="intro"><%= text.introText %></p>
+        <br>
+        <ol>
+        <li><%= text.instr1 %></li>
+        <li><%= text.instr2 %></li>
+        <li><%= text.instr3 %></li>
+        <li><%= text.instr4 %></li>
+        <li><%= text.instr5 %></li>
+        </ol>
+    </div>
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>   
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/jquery-ui/jquery-ui.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
+<script src="/js/script.js"></script>
+<script>if (window.module) module = window.module;</script>
+</body>
+
+</html>

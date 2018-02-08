@@ -65,6 +65,10 @@ var measurementsInProcess = function(req,res, next) {
      res.render('inprocess', {text: language.inprocessText(language.controller.getLang)});
 };
 
+var bloodPressure = function(req, res) {
+    res.render("bloodPressure", {text: language.bloodPressureText(language.controller.getLang)});
+}
+
 
 /* =============================
   ROUTES FOR THE SECOND SCREEN
@@ -130,6 +134,8 @@ module.exports.finishedPoster = finishedPoster;
 module.exports.selectLanguage = selectLanguage;
 
 module.exports.sendeMail = sendeMail;
+
+module.exports.bloodPressure = bloodPressure;
 
 // 404 not found
 module.exports.notFound404 = notFound404;

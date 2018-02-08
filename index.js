@@ -76,6 +76,8 @@ app.get('/poster', route.poster);
 app.get('/finished', route.finished);
 app.get('/finishedPoster', route.finishedPoster);
 
+app.get("/bloodPressure", route.bloodPressure);
+
 app.post('/selectLanguage', route.selectLanguage);
 app.post('/sendeMail', route.sendeMail);
 

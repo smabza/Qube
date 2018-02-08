@@ -133,7 +133,7 @@ function showResults(resultKeys, elementId)
     var newParagraph;
     var resultsNode = document.getElementById("results");
     // Clear old results from the screen when switching between modes 
-    if (resultsNode.hasChildNodes())
+    if (resultsNode.hasChildNodes)
     {
         while(resultsNode.firstChild)
         {
@@ -183,9 +183,7 @@ sendEmailForm.submit(function()
     });
 });
 
-
-
-// // EXIT BUTTON
+// EXIT BUTTON
 function goHome()
 {
     window.location = "http://127.0.0.1:3000/";
