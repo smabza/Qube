@@ -17,32 +17,29 @@
 		<div class="header2" id="resultsHeader">
 			<button id="basicsButton" type="button" onclick="resultSelector('basic')">Show basic results</button>
 			<button id="extensivesButton" type="button" onclick="resultSelector('extensive')">Show extensive results</button>
-			<button id="limbsButton" type="button">Show limb data</button>	<!-- FUNCTIONALITY NOT IMPLEMENTED YET -->
+			<button id="limbsButton" type="button" onclick="resultSelector('limbs')">Show limb data</button>
 		<!--	Result header is printed here in results.js
 				Data such as date, time and gender -->
 		</div>
+		
 		<div class="sideMarginLeft"></div>	<!-- Margin on the left side of results -->
-            <div id="results">
-                <!-- Do not add any elements in here manually
-                    All elements are cleared when the results are printed -->
-            </div>
-		<div class="sideMarginRight"></div> <!-- Margin on the right side of results -->
-		<div class="exitArea">
-                <form id="email" action="sendEmail" method="POST">
-                    <button type="submit">Sähköposti</button>
-                </form>
-				<button id="exitButton" type="button" onclick="goHome()">Exit</button>
-			</div>
-		<div id="bodyPictures" style="display: none">
-				<img src="/images/man_shadow4.png" alt="Body">
-				<img src="/images/Female_shadow3.png" alt="FBody">
+		
+		<div id="results">
+				<!-- Do not add any elements in here manually
+						All elements are cleared when the results are printed -->		
 		</div>
-		<div class="sideMargin"></br></div> <!-- Margin on the right side of images -->
+		
+		<div class="sideMarginRight"></div> <!-- Margin on the right side of results -->
+		
+		<div class="exitArea">
+			<form id="email" action="sendEmail" method="POST">
+				<button type="submit">Sähköposti</button>
+			</form>
+			<button id="exitButton" type="button" onclick="goHome()">Exit</button>
+		</div>
 	</div>
 
 
-<!-- Trigger the modal with a button -->
-<button class="btn btn-info btn-lg" onclick="showModal('data', 'text')" type="button"></button>
 <!-- Modal definition start -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">

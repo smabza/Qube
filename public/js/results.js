@@ -12,6 +12,8 @@ try
     // Import descriptions.js and resultExports.js -- No module.imports in client side...
     var descriptions = remote.getGlobal("logDescriptions");
     var results = remote.getGlobal("resultJSONs");
+    var basicResultsLength = Object.keys(results.basicResults).length;
+    // app.console.log(basicResultsLength);
     // app.console.log(descriptions.AG);
     // app.console.log(results);
 } 
@@ -102,24 +104,29 @@ function resultSelector(scope)
 {
     var resultKeys;
     var elementId;
-    var showBodyParts;
+    app.console.log(scope);
     switch (scope) {
         case "header":
             // Save JSON object keys into an array, pick the DOM element to use and run function
             resultKeys = Object.keys(results.headerValues);
             elementId = "resultsHeader";
-            showResults(resultKeys, elementId);
+            showResults(resultKeys, elementId, scope);
             break;
         case "basic":
             resultKeys = Object.keys(results.basicResults);
             elementId = "results";
-            showResults(resultKeys, elementId);
+            showResults(resultKeys, elementId, scope);
             break;
         case "extensive":
             resultKeys = Object.keys(results.extensiveResults);
             elementId = "results";
-            showResults(resultKeys, elementId);
+            showResults(resultKeys, elementId, scope);
             break; 
+        case "limbs":
+            resultKeys = Object.keys(results.limbData);
+            elementId = "results";
+            showResults(resultKeys, elementId, scope);
+            break;
         default:
             break;
     }
@@ -128,7 +135,7 @@ function resultSelector(scope)
 // Extract values from logDescVal
 // Add object key from array and the extracted value to the paragraph
 // Append paragraph to the page
-function showResults(resultKeys, elementId)
+function showResults(resultKeys, elementId, scope)
 {
     var newParagraph;
     var resultsNode = document.getElementById("results");
@@ -153,6 +160,11 @@ function showResults(resultKeys, elementId)
                 var title = resultKeys[index] + ": " + elementValue;
                 newParagraph = document.createElement("p");
                 newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
+                if (scope === "extensive" && index >= basicResultsLength)
+                {
+                    //newParagraph.style.border = "thick solid #c8ff82";
+                    newParagraph.style.backgroundColor = "#ffc582"
+                }
                 document.getElementById(elementId).appendChild(newParagraph);
                 /* TODO: Need to add actual descriptions */
                 newParagraph.addEventListener("click", function() {showModal(title, "Description");});
