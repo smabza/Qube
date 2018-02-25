@@ -1,0 +1,17 @@
+.lang-select {
+    width: 25%;
+    height: 200px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    font-size: 40px;
+    display: inline-block;
+}
+
+#fi {
+    background-color: #008CBA;
+}
+
+#en {
+    background-color: #4CAF50;
+}
