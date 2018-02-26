@@ -96,3 +96,9 @@
 .input-control.required input {
     border: none;
 }
+
+#infoBox {
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+}

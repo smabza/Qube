@@ -8,6 +8,7 @@ const nodemailer = require('nodemailer');
 /* START PAGE */
 var home = function(req, res, next) {
     res.render('home');
+    //res.render('results', {lang: language.controller.getLang});
 };
 
 var sendeMail = function(req, res) {
@@ -77,6 +78,9 @@ var bloodPressure = function(req, res) {
 var results = function(req, res, next) {
     res.render('results', {lang: language.controller.getLang});
 };
+/* =============================
+  ROUTES FOR THE SECOND SCREEN
+=============================== */
 
 var inProcessPoster = function(req, res, next) {
     res.render('inProcessPoster', {text: language.inprocessPosterText(language.controller.getLang)});

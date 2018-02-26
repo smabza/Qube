@@ -30,7 +30,7 @@ app.set('view engine', 'ejs');
 
 // app.use(cookieParser());
 app.use(bodyParser());
-app.use(session({secret: 'secret strategic xxzzz code'}));
+app.use(session({ secret: 'secret strategic xxzzz code' }));
 
 app.use(express.static(__dirname + '/bower_components')); // bootstrap
 app.use(express.static(__dirname + '/public'));
@@ -38,13 +38,6 @@ app.use(express.static(__dirname + '/public'));
 // Require log descriptions and create a global shared object
 global.logDescriptions = require("./public/logs/descriptions.js");
 global.resultJSONs = require("./public/logs/resultExports.js")
-
-
-
-
-
-
-
 
 
 
@@ -85,10 +78,10 @@ app.post('/sendeMail', route.sendeMail);
 app.use(route.notFound404);
 
 
-var server = app.listen(app.get('port'), function(err) {
-   if(err) throw err;
-   var message = 'Server is running @ http://localhost:' + server.address().port;
-   console.log(message);
+var server = app.listen(app.get('port'), function (err) {
+	if (err) throw err;
+	var message = 'Server is running @ http://localhost:' + server.address().port;
+	console.log(message);
 });
 
 
@@ -96,62 +89,63 @@ var server = app.listen(app.get('port'), function(err) {
   DISPLAYS AND WINDOWS CONFIGURATION
 ================================== */
 
-electronapp.on('ready', function() {
-  var electronScreen = electron.screen;
-  // gets all displays available:
-  var displays = electronScreen.getAllDisplays();
-  // console.log(displays);
-  var size = electronScreen.getPrimaryDisplay().workAreaSize;
-  var mainWindow = new BrowserWindow({ width: size.width, height: size.height, fullscreen: true, frame: false});
-  // loads nodeJs app to electron window:
-  mainWindow.loadURL('http://127.0.0.1:3000/');
-  // opens developer tools:
-  //mainWindow.webContents.openDevTools();
-  var secondWindow;
+electronapp.on('ready', function () {
+	var electronScreen = electron.screen;
+	// gets all displays available:
+	var displays = electronScreen.getAllDisplays();
+	// console.log(displays);
+	var size = electronScreen.getPrimaryDisplay().workAreaSize;
+	var mainWindow = new BrowserWindow({ width: size.width, height: size.height, fullscreen: true, frame: false });
+	// loads nodeJs app to electron window:
+	mainWindow.loadURL('http://127.0.0.1:3000/');
+	// opens developer tools:
+	//mainWindow.webContents.openDevTools();
 
-  //second display, Second in array:
-  var externalDisplay = displays[1];
+	var secondWindow;
 
-if (externalDisplay) {
-  secondWindow = new BrowserWindow({
-    x: externalDisplay.bounds.x,
-    y: externalDisplay.bounds.y,
-     width: externalDisplay.bounds.width,
-    height: externalDisplay.bounds.height,
-    fullscreen: true,
-    frame: false
-   });
-   secondWindow.loadURL('http://127.0.0.1:3000/poster');
-}
+	//second display, Second in array:
+	var externalDisplay = displays[1];
 
-// load instructions viw to the second screen
-function heightInstr() {
-  if (externalDisplay) {
-  /* var secondWindow = new BrowserWindow({
-     x: externalDisplay.bounds.x,
-     y: externalDisplay.bounds.y,
-     width: externalDisplay.bounds.width,
-     height: externalDisplay.bounds.height
-     //fullscreen: true
-    });
-    //  secondWindow.webContents.openDevTools();*/
-     secondWindow.loadURL('http://127.0.0.1:3000/inProcessPoster');
-     //secondWindow.webContents.openDevTools();
-     console.log("watch second screen");
-   }
-}
+	if (externalDisplay) {
+		secondWindow = new BrowserWindow({
+			x: externalDisplay.bounds.x,
+			y: externalDisplay.bounds.y,
+			width: externalDisplay.bounds.width,
+			height: externalDisplay.bounds.height,
+			fullscreen: true,
+			frame: false
+		});
+		secondWindow.loadURL('http://127.0.0.1:3000/poster');
+	}
 
-function measumentEnded() {
-  mainWindow.loadURL('http://127.0.0.1:3000/finished');
-}
+	// load instructions viw to the second screen
+	function heightInstr() {
+		if (externalDisplay) {
+			/* var secondWindow = new BrowserWindow({
+			   x: externalDisplay.bounds.x,
+			   y: externalDisplay.bounds.y,
+			   width: externalDisplay.bounds.width,
+			   height: externalDisplay.bounds.height
+			   //fullscreen: true
+			  });
+			  //  secondWindow.webContents.openDevTools();*/
+			secondWindow.loadURL('http://127.0.0.1:3000/inProcessPoster');
+			//secondWindow.webContents.openDevTools();
+			console.log("watch second screen");
+		}
+	}
 
-function showPoster() {
-  secondWindow.loadURL('http://127.0.0.1:3000/poster');
-}
+	function measumentEnded() {
+		mainWindow.loadURL('http://127.0.0.1:3000/finished');
+	}
 
-// export function to select.ejs:
-module.exports.heightInstr = heightInstr;
-module.exports.measumentEnded = measumentEnded;
-module.exports.showPoster = showPoster;
+	function showPoster() {
+		secondWindow.loadURL('http://127.0.0.1:3000/poster');
+	}
+
+	// export function to select.ejs:
+	module.exports.heightInstr = heightInstr;
+	module.exports.measumentEnded = measumentEnded;
+	module.exports.showPoster = showPoster;
 
 });

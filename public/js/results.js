@@ -22,7 +22,7 @@ catch (error)
     app.console.log(error);
 }
 
-var log = fs.readFileSync('public/logs/data.txt', 'utf8');
+var log = fs.readFileSync('public/logs/data1.txt', 'utf8');
 
 // Cut off all unnecessary stuff from the beginning until "Da, ... which is date object"
 var start = "Da";
@@ -160,11 +160,19 @@ function showResults(resultKeys, elementId, scope)
                 var title = resultKeys[index] + ": " + elementValue;
                 newParagraph = document.createElement("p");
                 newParagraph.appendChild(document.createTextNode(resultKeys[index] + ": " + elementValue));
+                
+                // Color extensive results to more orange for "UX"
                 if (scope === "extensive" && index >= basicResultsLength)
                 {
-                    //newParagraph.style.border = "thick solid #c8ff82";
-                    newParagraph.style.backgroundColor = "#ffc582"
+                    newParagraph.style.backgroundColor = "#ffc582";
                 }
+
+                // Color every second line of limb results (each limb) to oranger
+                if (scope === "limbs" && (index < 3 || (index > 5 && index < 9 ) || index > 11 ))
+                {
+                    newParagraph.style.backgroundColor = "#ffc582";
+                }
+                
                 document.getElementById(elementId).appendChild(newParagraph);
                 /* TODO: Need to add actual descriptions */
                 newParagraph.addEventListener("click", function() {showModal(title, "Description");});

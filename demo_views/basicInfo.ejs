@@ -24,13 +24,13 @@
 	<form data-role="validator" class="container userData" data-on-submit="return false">
 		<div class="input-control text row" data-role="keypad">
 			<input data-validate-func="max, required" data-validate-arg="100" data-validate-hint=<%= text.weightHint %> type="text" placeholder=<%= text.age %>
-			 id="age" value="88">
+			 id="age">
 			<span class="input-state-error mif-warning"></span>
 			<span class="input-state-success mif-checkmark"></span>
 		</div>
 		<div class="input-control text row" data-role="keypad">
 			<input type="text" id="height" placeholder=<%= text.height %> data-validate-func="max, required" data-validate-arg="250" 
-			data-validate-hint=<%= text.heightHint %> value="140">
+			data-validate-hint=<%= text.heightHint %>>
 			<span class="input-state-error mif-warning"></span>
 			<span class="input-state-success mif-checkmark"></span>
 		</div>
@@ -48,6 +48,10 @@
 		</div>
 		<button><a href="/selectDevices">Debug seuraava</a></button>
 	</form>
+
+	<textarea id="infoBox" rows="4" cols="50" readonly>
+		Göhöhö, tervemenoo mittauskuutioon homo. Tää luukku huutaa jotain vitun siistii meininkii kokoajan jos joku menee pieleen
+	</textarea>
 	
 
 	<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>

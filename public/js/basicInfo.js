@@ -4,15 +4,13 @@ var fs = require('fs');
 const remote = require('electron').remote;
 const app = remote.app;
 
-// pcModeExec = "M1";
-// clothesWeightExec = "D0";
-// genderExec = "D1";
-// bodytypeExec = "D2";
-// heightExec = "D3";
-// ageExec = "D4"
-// startExec = "G";
 
+// Create new result log and (re)start putty
+fs.writeFileSync("public/logs/data.txt", "")
 restartPutty();
+
+// Get the info box element
+var infoBox = document.getElementById("infoBox");
 
 // clicking Seuraava executes a function:
 $('#sendData').on('click', sendData);
@@ -117,23 +115,26 @@ function checkTanitaResponse()
     var text;
 
     try 
-    {
+    {   
         text = fs.readFileSync("public/logs/data.txt", "utf8");
         
     }
     catch (error) 
     {
-        app.console.log("Problem reading file. Terminating and restarting putty to create new file.");
+        app.console.log("Error reading file. Terminating and restarting putty to create new file.");
+        infoBox.value = "Error creating or reading the file for measurement results. Terminating and restarting putty to create a new file.";
         restartPutty();
     }
     
 
     if (text.includes("@") && text.includes("D2") && text.includes("D0") && text.includes("D1") && text.includes("D4") && text.includes("D3")) {
-        app.console.log("File read, all Tanita responses found!")
+        app.console.log("File read, all Tanita responses found!");
+        infoBox.value = "Connection to the measurement device OK!";
         return true;
     }
     else {
         app.console.log("Not all responses found. Terminating and restarting putty to create new file, try again.");
+        infoBox.value = "Measuring device not responding properly. Terminating and restarting putty to create new file, try again. Make sure that the measuring device is powered and connected."
         restartPutty();
         return false;
     }
@@ -142,5 +143,6 @@ function checkTanitaResponse()
 function restartPutty()
 {
     exec("killall putty");
-    exec("putty -load 'Mittauskuutio'");	
+    exec("putty -load 'Mittauskuutio'");
+    exec("wmctrl -R Tervetuloa Mittauskuutioon")	
 }
