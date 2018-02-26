@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Tervetuloa Mittauskuutioon</title>
+	<title>Tervetuloa Qubeen. Welcome to Qube.</title>
 	<meta charset="UTF-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -10,34 +11,32 @@
 	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
 	<link href="/Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
 	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/home.css" rel="stylesheet">
 </head>
 
 <body id="grad">
 	<div class="jumbotron">
-		<h1 class="text-center"style="margin: 30px 0px 30px 0px; color: black;">Tervetuloa Mittauskuutioon</h1>
-    <h2 class="text-center"style="margin: 30px 0px 30px 0px; color: black;">Valitse kieli/Choose your language</h2>
-    
+		<h1 class="text-center" style="margin: 30px 0px 30px 0px; color: black;">Tervetuloa Qubeen</h1>
+		<h1 class="text-center" style="margin: 30px 0px 30px 0px; color: black;">Welcome to Qube</h1>
+		<h2 class="text-center" style="margin: 30px 0px 30px 0px; color: black;">Valitse kieli / Choose your language</h2>
+
 	</div>
 	<div class="container text-center">
 		<div class="stanewmeas">
-			<!--
-				<a href="/basicInfo" id="finnish" class="button"></a>
-
-				<a href="/basicInfo_ENG" id="english" class="button"></a>
-			-->
-
-			<form action="selectLanguage" method="POST">
-				<button type="submit" name="language" value="fi" class="lang-select">Suomi</button>
-			</form>
 			
 			<form action="selectLanguage" method="POST">
-				<button type="submit" name="language" value="en" class="lang-select">English</button>
+				<button type="submit" name="language" value="fi" id="fi" class="lang-select">Suomi</button>
 			</form>
 
-    	</div>
+			<form action="selectLanguage" method="POST">
+				<button type="submit" name="language" value="en" id="en" class="lang-select">English</button>
+			</form>
+
+		</div>
 	</div>
 
-	<link href="/css/home.css" rel="stylesheet">
+
 
 </body>
+
 </html>
