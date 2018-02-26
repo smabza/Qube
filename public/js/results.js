@@ -5,34 +5,24 @@ var indexJs = remote.require("./index.js");
 const app = remote.app;
 
 var language = $('script[src*=results]').attr('data-language');
-console.log(language);
 
 /*
     File descriptions contains variables fi_descriptions and en_descriptions choose right one according to chosen language. 
     result
 */
-
-try 
+var descriptions = fiDescriptions;
+if (language === 'fi')
 {
-    // Import descriptions.js and resultExports.js -- No module.imports in client side...
-    //var descriptions = remote.getGlobal("logDescriptions");
     var descriptions = fiDescriptions;
-    if (language === 'fi') {
-        var descriptions = fiDescriptions;
-        var results = fiResultExports;
-    } else {
-        var descriptions = enDescriptions;
-        var results = enResultExports;
-    }
-    var basicResultsLength = Object.keys(results.basicResults).length;
-    console.log(fiDescriptions);
-    // app.console.log(descriptions.AG);
-    // app.console.log(results);
-} 
-catch (error) 
+    var results = fiResultExports;
+} else  // Default to english.
 {
-    app.console.log(error);
+    var descriptions = enDescriptions;
+    var results = enResultExports;
 }
+
+var basicResultsLength = Object.keys(results.basicResults).length;
+
 
 var log = fs.readFileSync('public/logs/data1.txt', 'utf8');
 
