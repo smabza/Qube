@@ -9,6 +9,7 @@ const nodemailer = require('nodemailer');
 var home = function(req, res, next) {
     res.render('home');
     //res.render('results', {lang: language.controller.getLang});
+    //res.render('menu', {text: language.selectText(language.controller.getLang)});
 };
 
 var sendeMail = function(req, res) {
@@ -59,7 +60,7 @@ var basicInfo = function(req, res, next) {
 
 /* USER SELECTS DEVICES */
 var selectDevices = function(req, res, next) {
-  res.render('select', {text: language.selectText(language.controller.getLang)});
+  res.render('menu', {text: language.selectText(language.controller.getLang)});
 };
 
 var measurementsInProcess = function(req,res, next) {

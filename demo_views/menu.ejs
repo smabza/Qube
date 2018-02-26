@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet">
+
+		<link href="/css/menu.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
+		<script src="/js/menu.js"></script>
+	</head>
+
+	<body id="grad">
+		<div class="jumbotron">
+        	<h1 class="text-center" style="font-size: 5.5em; margin: 20px 0px 20px 0px; color: black;"><%= text.title %></h1>
+		</div>
+
+		<div class="buttonArea">
+			<button id="back" type="button" onClick="returnHome()">text.backButton</button>
+			<button id="bloodPressure" type="button" onClick="bloodPressure()">text.bloodButton</button>
+			<button id="bodyComposition" type="button" onClick="startMeasurements()">text.bodyButton</button>
+		</div>
+
+	</body>
+</html>

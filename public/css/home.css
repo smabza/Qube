@@ -10,8 +10,10 @@
 
 #fi {
     background-color: #008CBA;
+    border-radius: 12px;
 }
 
 #en {
     background-color: #4CAF50;
+    border-radius: 12px;
 }

@@ -7,11 +7,14 @@ var index = remote.require("./index.js");
 var heightInstr = index.heightInstr;
 var exec = require('child_process').exec;
 
+function returnHome() 
+{
+    window.location = "http://127.0.0.1:3000/";
+}
 
-
-$('#seuraava').on('click', startMeasurements);
-
-function startMeasurements() {
+function startMeasurements() 
+{
+    heightInstr();
     exec("echo 'G\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
@@ -19,12 +22,10 @@ function startMeasurements() {
             console.log('exec error: ' + error);
         }
     });
-};
+    window.location = "http://127.0.0.1:3000/measurementsInProcess";
+}
 
-
-$('#seuraava').on('click', function() {
-    heightInstr();
-});
-$('#violet').on('click', function() {
-    $('#violet').css('border', '5px solid #FAFE8D');
-});
+function bloodPressure() 
+{
+    window.location = "http://127.0.0.1:3000/bloodPressure";
+}
