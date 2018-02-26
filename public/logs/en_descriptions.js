@@ -1,4 +1,4 @@
-module.exports = 
+var enDescriptions =
 {
     "Da": "Date",
     "TI": "Time",

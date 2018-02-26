@@ -1,4 +1,4 @@
-module.exports =
+var enResultExports =
 {
     headerValues : 
     {
