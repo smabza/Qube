@@ -16,7 +16,8 @@ var sendeMail = function(req, res) {
     console.log("Vitu awesome");
     // TODO Get content and add to email.
     // TODO Secure sender credentials.
-    //var content = req.body.email;
+    var content = req.body;
+    console.log(content);
     /*var transport = nodemailer.createTransport({
         host: "smtp.office365.com",
         port: 587,

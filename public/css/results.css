@@ -38,13 +38,13 @@
     align-content: center;
 }
 
-#results 
+#results, #limbs, #extensive
 {
     grid-column: 2 / -1;
     grid-row: 2 / -1;
 }
 
-#results p {
+#results p, #limbs p, #extensive p {
     width: 31.7%; 
     display: inline-block; 
     background-color: rgb(255, 235, 122);

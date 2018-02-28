@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
 	<link href="/css/styles.css" rel="stylesheet">
@@ -14,21 +15,27 @@
 	</div>
 	<div class="gridWrapper">
 		<!-- Results are appended into these divs in results.js -->
-		<div class="header2" id="resultsHeader">
-			<button id="basicsButton" type="button" onclick="resultSelector('basic')">Show basic results</button>
-			<button id="extensivesButton" type="button" onclick="resultSelector('extensive')">Show extensive results</button>
-			<button id="limbsButton" type="button" onclick="resultSelector('limbs')">Show limb data</button>
+		<div class="header2 toEmail" id="resultsHeader">
+			<button id="basicsButton" type="button">Basic</button>
+			<button id="extensivesButton" type="button">Show extensive results</button>
+			<button id="limbsButton" type="button">Raajat</button>
 		<!--	Result header is printed here in results.js
 				Data such as date, time and gender -->
 		</div>
 		
 		<div class="sideMarginLeft"></div>	<!-- Margin on the left side of results -->
 		
-		<div id="results">
-				<!-- Do not add any elements in here manually
-						All elements are cleared when the results are printed -->		
-		</div>
-		
+			<div id="results" class="toEmail">
+					<!-- Do not add any elements in here manually
+							All elements are cleared when the results are printed -->		
+			</div>
+
+			<div id="extensive" class="toEmail">
+			</div>
+
+			<div id="limbs" class="toEmail">
+			</div>
+
 		<div class="sideMarginRight"></div> <!-- Margin on the right side of results -->
 		
 		<div class="exitArea">
