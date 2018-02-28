@@ -3,6 +3,8 @@ var exec = require('child_process').exec;
 var fs = require('fs');
 const remote = require('electron').remote;
 const app = remote.app;
+var index = remote.require("./index.js");
+var heightInstr = index.heightInstr;
 
 
 // Create new result log and (re)start putty
@@ -91,12 +93,10 @@ function sendData() {
         setTimeout(function () {
             allDone = checkTanitaResponse();
             if (allDone) {
-                window.location = "http://127.0.0.1:3000/selectDevices";
+                startMeasurements();
             }
         }, 100);
 
-        // after exec, go to selectDevices view:
-        //window.location = "http://127.0.0.1:3000/selectDevices";
     }
 }
 
@@ -124,6 +124,7 @@ function checkTanitaResponse()
         app.console.log("Error reading file. Terminating and restarting putty to create new file.");
         infoBox.value = "Error creating or reading the file for measurement results. Terminating and restarting putty to create a new file.";
         restartPutty();
+        return false;
     }
     
 
@@ -144,5 +145,18 @@ function restartPutty()
 {
     exec("killall putty");
     exec("putty -load 'Mittauskuutio'");
-    exec("wmctrl -R Tervetuloa Mittauskuutioon")	
+    exec("wmctrl -R Tervetuloa Mittauskuutioon");	
+}
+
+function startMeasurements() 
+{
+    heightInstr();
+    exec("echo 'G\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+    });
+    window.location = "http://127.0.0.1:3000/measurementsInProcess";
 }

@@ -2,7 +2,7 @@
 {
     position: absolute;
     margin-left: 25%;
-    margin-top: 10%;
+    margin-top: 7%;
     width: 50%;
     align-content: center;
 }
@@ -19,5 +19,5 @@
     padding: 5%;
     font: bold;
     border-radius: 12px;
-    font-size: 1.5em;
+    font-size: 2em;
 }

@@ -51,7 +51,7 @@ var sendeMail = function(req, res) {
 
 var selectLanguage = function(req, res) {
     language.controller.setLang = req.body.language;
-    res.redirect('/basicInfo');
+    res.render('menu', {text: language.menuText(language.controller.getLang)});
 };
 
 /* USER INPUTS PARAMETERS */
@@ -60,8 +60,8 @@ var basicInfo = function(req, res, next) {
 };
 
 /* USER SELECTS DEVICES */
-var selectDevices = function(req, res, next) {
-  res.render('menu', {text: language.selectText(language.controller.getLang)});
+var menu = function(req, res, next) {
+  res.render('menu', {text: language.menuText(language.controller.getLang)});
 };
 
 var measurementsInProcess = function(req,res, next) {
@@ -72,10 +72,9 @@ var bloodPressure = function(req, res) {
     res.render("bloodPressure", {text: language.bloodPressureText(language.controller.getLang)});
 }
 
-
-/* =============================
-  ROUTES FOR THE SECOND SCREEN
-=============================== */
+var bloodPressureResults = function(req, res) {
+    res.render("bloodPressureResults", {text: language.bloodPressureResultsText(language.controller.getLang)});
+}
 
 var results = function(req, res, next) {
     res.render('results', {lang: language.controller.getLang});
@@ -120,7 +119,7 @@ module.exports.home = home;
 module.exports.basicInfo = basicInfo;
 
 // select Devices
-module.exports.selectDevices = selectDevices;
+module.exports.menu = menu;
 
 // measurements are in process
 module.exports.measurementsInProcess = measurementsInProcess;
@@ -128,7 +127,6 @@ module.exports.measurementsInProcess = measurementsInProcess;
 // results on the big screen:
 module.exports.results = results;
 
-// height instructions
 module.exports.inProcessPoster = inProcessPoster;
 
 module.exports.poster = poster;
@@ -142,6 +140,8 @@ module.exports.selectLanguage = selectLanguage;
 module.exports.sendeMail = sendeMail;
 
 module.exports.bloodPressure = bloodPressure;
+
+module.exports.bloodPressureResults = bloodPressureResults;
 
 // 404 not found
 module.exports.notFound404 = notFound404;

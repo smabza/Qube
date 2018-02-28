@@ -3,8 +3,6 @@ var remote = electron.remote;
 var index = remote.require("./index.js");
 var electron = require("electron");
 var remote = electron.remote;
-var index = remote.require("./index.js");
-var heightInstr = index.heightInstr;
 var exec = require('child_process').exec;
 
 function returnHome() 
@@ -12,17 +10,9 @@ function returnHome()
     window.location = "http://127.0.0.1:3000/";
 }
 
-function startMeasurements() 
+function bodyComposition()
 {
-    heightInstr();
-    exec("echo 'G\n' > /dev/ttyUSB0", function (error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
-        if (error !== null) {
-            console.log('exec error: ' + error);
-        }
-    });
-    window.location = "http://127.0.0.1:3000/measurementsInProcess";
+    window.location = "http://127.0.0.1:3000/basicInfo";
 }
 
 function bloodPressure() 

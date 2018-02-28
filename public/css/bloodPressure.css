@@ -1,0 +1,85 @@
+.instructions, .info, .tableArea
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+p, li
+{
+    font-size: 1.4em;
+    font-weight: bold;
+    color: black;
+}
+
+h2
+{
+    color: black;
+}
+
+#table
+{
+    width: 100%;
+}
+
+#table td
+{
+    padding-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    color: black;
+    background-color: rgba(227, 227, 227, 0.288);
+    font-size: 1.2em;
+    
+}
+
+#table tr:nth-child(even)
+{
+    background-color: rgba(242, 242, 242, 0.288);
+}
+
+.col1, .col2, .col3, .col4
+{
+    width: 35%;
+}
+
+.col2, .col4
+{
+    width: 25%;
+}
+
+.col3
+{
+    width: 15%;
+}
+
+
+.führer
+{
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 7;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#back
+{
+    grid-column: 1;
+    padding: 1em;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#next
+{
+    grid-column: 7;
+    padding: 1em;
+    border-radius: 15px;
+    margin-right: 0%;
+    text-align: center;
+    font-size: 1.5em;
+}

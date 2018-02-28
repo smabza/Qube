@@ -6,6 +6,7 @@
 <head>
 	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
 	<link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/bloodPressure.css" rel="stylesheet">
 
 </head>
 
@@ -15,7 +16,9 @@
 	</div>
 
     <div class="instructions">
-        <p id="intro"><%= text.introText %></p>
+        <p><%= text.intro1 %></p>
+        <p><%= text.intro2 %></p>
+        <p><%= text.intro3 %></p>
         <br>
         <ol>
         <li><%= text.instr1 %></li>
@@ -26,12 +29,18 @@
         </ol>
     </div>
 
+    <div class="führer">
+        <button id="back">Back</button>
+        <button id="next">Next</button>
+    </div>
+
 <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>   
 <script src="/jquery/dist/jquery.min.js"></script>
 <script src="/jquery-ui/jquery-ui.min.js"></script>
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
 <script src="/js/script.js"></script>
+<script src="/js/bloodPressure.js"></script>
 <script>if (window.module) module = window.module;</script>
 </body>
 

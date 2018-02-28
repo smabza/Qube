@@ -51,7 +51,7 @@ app.get('/', route.home);
 app.get('/basicinfo', route.basicInfo);
 
 // Select devices view
-app.get('/selectDevices', route.selectDevices);
+app.get('/menu', route.menu);
 
 // measurements in process
 app.get('/measurementsInProcess', route.measurementsInProcess);
@@ -70,6 +70,8 @@ app.get('/finished', route.finished);
 app.get('/finishedPoster', route.finishedPoster);
 
 app.get("/bloodPressure", route.bloodPressure);
+
+app.get("/bloodPressureResults", route.bloodPressureResults);
 
 app.post('/selectLanguage', route.selectLanguage);
 app.post('/sendeMail', route.sendeMail);

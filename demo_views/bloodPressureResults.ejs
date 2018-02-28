@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<% text %>
+
+<head>
+	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+	<link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/bloodPressure.css" rel="stylesheet">
+
+</head>
+
+<body id="grad">
+	<div class="jumbotron">
+        <h1 class="text-center" style="font-size: 5.5em; margin: 20px 0px 20px 0px; color: black;"><%= text.title %></h1>
+	</div>
+
+    <div class="info">
+        <h2><%= text.infoHeader1 %></h2>
+        <p><%= text.info1 %></p>
+        <p><%= text.info2 %></p>
+        <h2><%= text.infoHeader2 %></h2>
+        <p><%= text.info3 %></p>
+    </div>
+    
+    <div class="tableArea">
+        <table id="table">
+            <tr>
+                <th><h2><%= text.tableCol1Header %></h2></th>
+                <th><h2><%= text.tableCol2Header %></h2></th> 
+                <th><h2><!-- Empty cell --></h2></th>
+                <th><h2><%= text.tableCol4Header %></h2></th>
+            </tr>
+            <tr>
+                <td class="col1"><%= text.tableC1R1 %></td>
+                <td class="col2"><%= text.tableC2R1 %></td>
+                <td class="col3"><%= text.tableC3R1 %></td>
+                <td class="col4"><%= text.tableC4R1 %></td>
+            </tr>
+            <tr>
+                <td class="col1"><%= text.tableC1R2 %></td>
+                <td class="col2"><%= text.tableC2R2 %></td>
+                <td class="col3"><%= text.tableC3R2 %></td>
+                <td class="col4"><%= text.tableC4R2 %></td>
+            </tr>
+            <tr>
+                <td class="col1"><%= text.tableC1R3 %></td>
+                <td class="col2"><%= text.tableC2R3 %></td>
+                <td class="col3"><%= text.tableC3R3 %></td>
+                <td class="col4"><%= text.tableC4R3 %></td>
+            </tr>
+            <tr>
+                <td class="col1"><%= text.tableC1R4 %></td>
+                <td class="col2"><%= text.tableC2R4 %></td>
+                <td class="col3"><%= text.tableC3R4 %></td>
+                <td class="col4"><%= text.tableC4R4 %></td>
+            </tr>
+            <tr>
+                <td class="col1"><%= text.tableC1R5 %></td>
+                <td class="col2"><%= text.tableC2R5 %></td>
+                <td class="col3"><%= text.tableC3R5 %></td>
+                <td class="col4"><%= text.tableC4R5 %></td>
+            </tr>
+            <tr>
+                <td class="col1"><%= text.tableC1R6 %></td>
+                <td class="col2"><%= text.tableC2R6 %></td>
+                <td class="col3"><%= text.tableC3R6 %></td>
+                <td class="col4"><%= text.tableC4R6 %></td>
+            </tr>
+            <tr>
+                <td class="col1"><%= text.tableC1R7 %></td>
+                <td class="col2"><%= text.tableC2R7 %></td>
+                <td class="col3"><%= text.tableC3R7 %></td>
+                <td class="col4"><%= text.tableC4R7 %></td>
+            </tr>
+        </table>
+    </div>
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>   
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/jquery-ui/jquery-ui.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/Metro-UI-CSS-master/build/js/metro.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/bloodPressure.js"></script>
+<script>if (window.module) module = window.module;</script>
+</body>
+
+</html>
